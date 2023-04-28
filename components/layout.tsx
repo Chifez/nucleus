@@ -1,5 +1,11 @@
-import React, { ReactNode } from "react";
 import SideBar from "./sideBar";
+
+interface Link {
+  id: number;
+  name: string;
+  links: string;
+  icon: JSX.Element;
+}
 
 const Layout = (props: { children: JSX.Element }) => {
   return (

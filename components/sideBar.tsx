@@ -1,6 +1,3 @@
-import Pricing from "@/pages/billings";
-import Profile from "@/pages/settings";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaUserAlt, FaFileInvoice } from "react-icons/fa";
@@ -9,6 +6,7 @@ import { AiTwotoneSetting } from "react-icons/ai";
 import { MdPhoneInTalk } from "react-icons/md";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { BiAtom } from "react-icons/bi";
+import { useRouter } from "next/router";
 const links = [
   { id: 1, name: "profile", links: "/", icon: <FaUserAlt /> },
   { id: 2, name: "Billings", links: "/billings", icon: <RiBillFill /> },
@@ -18,16 +16,15 @@ const links = [
   { id: 6, name: "LogOut", links: "/logout", icon: <RiLogoutBoxFill /> },
 ];
 
+interface Link {
+  id: number;
+  name: string;
+  links: string;
+  icon: JSX.Element;
+}
 const SideBar = () => {
-  const [active, setIsActive] = useState("profile");
-  const handleClick = (
-    page: string,
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
-    // e.preventDefault();
-    setIsActive(page);
-  };
-
+  const router = useRouter();
+  const currentPath = router.pathname;
   return (
     <div className="col-span-1  px-2 py-5 rounded-l-xl flex flex-col items-center gap-8">
       <div className=" flex items-center text-lg py-3 text-[#551FFF]">
@@ -38,11 +35,8 @@ const SideBar = () => {
         <Link
           href={item.links}
           key={idx}
-          onClick={(e) => {
-            handleClick(item.name, e);
-          }}
           className={`flex items-center justify-center w-fit px-8 py-4 gap-2 cursor-pointer hover:text-[#551FFF] hover:bg-[#F3F0FF] rounded-3xl ${
-            active == item.name
+            currentPath == item.links
               ? "bg-[#F3F0FF] text-[#551FFF]"
               : "text-[#D0D2DA]"
           }`}
