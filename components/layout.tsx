@@ -1,3 +1,4 @@
+import { useState } from "react";
 import SideBar from "./sideBar";
 
 interface Link {
@@ -9,9 +10,9 @@ interface Link {
 
 const Layout = (props: { children: JSX.Element }) => {
   return (
-    <div className="h-screen w-screen overflow-hidden grid grid-cols-6">
+    <div className="flex h-screen w-screen overflow-hidden">
       <SideBar />
-      <div className="col-span-5 bg-[#EAEAEA] p-2">{props.children}</div>
+      <div className="flex-1 bg-[#EAEAEA] px-5 py-2">{props.children}</div>
     </div>
   );
 };
