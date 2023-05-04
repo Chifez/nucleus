@@ -7,7 +7,7 @@ import { MdPhoneInTalk } from "react-icons/md";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { BiAtom, BiChevronsLeft, BiChevronsRight } from "react-icons/bi";
 import { useRouter } from "next/router";
-import { sideBarContext } from "./context/sidebarContext";
+import { sideBarContext } from "@/context/sidebarContext";
 import {
   TbSquareRoundedChevronsRightFilled,
   TbSquareRoundedChevronsLeftFilled,
