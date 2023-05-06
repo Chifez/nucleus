@@ -17,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <div className="flex flex-col w-full h-full">
+        <div className="flex flex-col w-full h-full ">
           <header>
             <h1 className="text-3xl font-semibold">DashBoard</h1>
             <p>welcome stranger </p>
