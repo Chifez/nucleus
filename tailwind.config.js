@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        averta: ["averta", "sans-serif"],
+        averta: ["var(--Averta)"],
       },
     },
   },

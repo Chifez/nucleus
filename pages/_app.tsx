@@ -1,12 +1,18 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import SidebarProvider from "@/context/sidebarContext";
-// import "public/AvertaDemoPE-Regular.otf";
+import Averta from "@next/font/local";
 
+const font = Averta({
+  src: "../public/AvertaDemoPE-Regular.otf",
+  variable: "--Averta",
+});
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <SidebarProvider>
-      <Component {...pageProps} />
+      <main className={`${font.variable} font-averta`}>
+        <Component {...pageProps} />
+      </main>
     </SidebarProvider>
   );
 }

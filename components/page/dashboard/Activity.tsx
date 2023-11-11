@@ -37,7 +37,27 @@ const Activity = () => {
   const IntegrationList = [
     {
       name: "anderson john",
-      desc: "integrating the user",
+      desc: "integrating the usersproductApi",
+    },
+    {
+      name: "Vector sam",
+      desc: "integrating the usersAuthApi",
+    },
+    {
+      name: "Emma jeffery",
+      desc: "integrating the userscartApi",
+    },
+    {
+      name: "anderson john",
+      desc: "integrating the userscheckoutApi",
+    },
+    {
+      name: "anderson john",
+      desc: "integrating the userscheckoutApi",
+    },
+    {
+      name: "Nathan stone",
+      desc: "integrating the userscheckoutApi",
     },
   ];
   return (
@@ -71,11 +91,16 @@ const Activity = () => {
         </div>
         <div className="h-[60vh] overflow-y-scroll scrollbar-hide">
           {IntegrationList.map((item, idx) => (
-            <div key={idx}>
-              <img src="" alt="" />
-              <span>
-                <h3>{item.name}</h3>
-                <p>{item.desc}</p>
+            <div
+              key={idx}
+              className="flex gap-2 my-3 py-4 border-b border-[#ECECEE]"
+            >
+              <div className="rounded-full w-fit h-fit p-2 flex items-center bg-[#9fade8]">
+                <FaUserAlt className="w-3 h-3" />
+              </div>
+              <span className="space-y-2">
+                <h3 className="font-medium">{item.name}</h3>
+                <p className="text-xs">{item.desc}</p>
               </span>
             </div>
           ))}
