@@ -1,5 +1,5 @@
-import { useState } from "react";
-import SideBar from "./sideBar";
+import { useState } from 'react';
+import SideBar from './SideBar';
 
 interface Link {
   id: number;

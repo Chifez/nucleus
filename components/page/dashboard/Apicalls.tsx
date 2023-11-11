@@ -1,5 +1,5 @@
-import Chart from "@/components/Apichart";
-import { CgOptions } from "react-icons/cg";
+import Chart from '@/components/page/dashboard/Apichart';
+import { CgOptions } from 'react-icons/cg';
 const Apicalls = () => {
   return (
     <div className="bg-white rounded-md w-full h-[70vh] p-4">
