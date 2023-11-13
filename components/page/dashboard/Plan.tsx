@@ -22,18 +22,21 @@ const Plan = () => {
           value: '1/4',
           bg: 'bg-[#EDE8FF]',
           fill: 'bg-[#734cff]',
+          width: 'w-[25%]',
         },
         {
           title: 'users',
           value: '1/7',
           bg: 'bg-[#FFF2E9]',
           fill: 'bg-[#fa954e]',
+          width: 'w-[17%]',
         },
         {
           title: 'Request/day',
           value: '2.5k/10k',
           bg: 'bg-[#EAF9FF]',
           fill: 'bg-[#4ac7f8]',
+          width: 'w-[25%]',
         },
       ],
     },
@@ -49,18 +52,21 @@ const Plan = () => {
           value: '1/5',
           bg: 'bg-[#EDE8FF]',
           fill: 'bg-[#734cff]',
+          width: 'w-[20%]',
         },
         {
           title: 'users',
           value: '1/3',
           bg: 'bg-[#FFF2E9]',
           fill: 'bg-[#fa954e]',
+          width: 'w-[35%]',
         },
         {
           title: 'Request/day',
           value: '3.5k/10k',
           bg: 'bg-[#EAF9FF]',
           fill: 'bg-[#4ac7f8]',
+          width: 'w-[30%]',
         },
       ],
     },
@@ -76,24 +82,26 @@ const Plan = () => {
           value: '1/7',
           bg: 'bg-[#EDE8FF]',
           fill: 'bg-[#734cff]',
+          width: 'w-[17%]',
         },
         {
           title: 'users',
-          value: '1/8',
+          value: '2/8',
           bg: 'bg-[#FFF2E9]',
           fill: 'bg-[#fa954e]',
+          width: 'w-[25%]',
         },
         {
           title: 'Request/day',
           value: '5.5k/10k',
           bg: 'bg-[#EAF9FF]',
           fill: 'bg-[#4ac7f8]',
+          width: 'w-[60%]',
         },
       ],
     },
   ];
   const goToNextSlide = () => {
-    console.log('clicked', currentIndex);
     if (currentIndex == lists.length - 1) {
       return setCurrentIndex(0);
     }
@@ -134,8 +142,8 @@ const Plan = () => {
           {lists.map((item, index) => (
             <div key={index} className="flex flex-col gap-5 min-w-full  py-2">
               {item.data.map((data, index) => (
-                <div className="flex flex-col gap-3">
-                  <div className="flex justify-between">
+                <div key={index} className="flex flex-col gap-2">
+                  <div className="flex justify-between font-medium text-sm">
                     <p className="capitalize">{data.title}</p>
                     <p>{data.value}</p>
                   </div>
@@ -143,7 +151,7 @@ const Plan = () => {
                     className={`relative flex items-center w-full h-[6px] ${data.bg} rounded-sm`}
                   >
                     <span
-                      className={`absolute  w-[30%] h-[6px]  ${data.fill} rounded-md`}
+                      className={`absolute ${data.width} h-[6px]  ${data.fill} rounded-md`}
                     ></span>
                   </div>
                 </div>

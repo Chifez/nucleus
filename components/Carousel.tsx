@@ -8,9 +8,9 @@ const Carousel = ({ children, currentIndex }: Props) => {
   return (
     <div className="w-full flex overflow-x-hidden">
       <div
-        className={`w-full flex transition -translate-x-[${
+        className={`-translate-x-[${
           currentIndex * 100
-        }%]`}
+        }%] w-full flex transition `}
       >
         {children}
       </div>
