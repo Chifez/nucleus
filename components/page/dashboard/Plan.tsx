@@ -102,6 +102,7 @@ const Plan = () => {
     },
   ];
   const goToNextSlide = () => {
+    console.log('clicked', currentIndex);
     if (currentIndex == lists.length - 1) {
       return setCurrentIndex(0);
     }

@@ -12,7 +12,7 @@ const Layout = (props: { children: JSX.Element }) => {
   return (
     <div className="flex h-screen w-screen overflow-hidden">
       <SideBar />
-      <div className="flex-1 bg-[#EAEAEA] px-5 py-2 overflow-y-scroll">
+      <div className="flex-1 bg-[#EAEAEA] px-5 py-2 h-full overflow-y-scroll">
         {props.children}
       </div>
     </div>

@@ -1,12 +1,9 @@
 import Layout from '@/components/Layout';
+import Invoice from '@/components/page/invoices';
 import React from 'react';
 
 const Invoices = () => {
-  return (
-    <Layout>
-      <div>invoices</div>
-    </Layout>
-  );
+  return <Invoice />;
 };
 
 export default Invoices;
