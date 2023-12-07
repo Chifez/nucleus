@@ -2,7 +2,7 @@ import Chart from '@/components/page/dashboard/Apichart';
 import { CgOptions } from 'react-icons/cg';
 const Apicalls = () => {
   return (
-    <div className="bg-white rounded-md w-full h-[70vh] p-4">
+    <div className="bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 rounded-md w-full h-[70vh] p-4">
       <div className="flex items-center justify-between px-5 mb-10 ">
         <div className="text-xl font-semibold ">
           API Calls in the last 6 hours

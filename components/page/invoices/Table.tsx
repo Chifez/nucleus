@@ -14,10 +14,11 @@ const Table = () => {
     due: 'text-red-300 bg-red-100',
   };
   return (
-    <div className="w-full">
+    <table className="w-full bg-white rounded-md">
       {/* <p>Invoice Table</p> */}
-      <div className="bg-white rounded-md">
-        <head className="w-full h-[6vh] flex justify-between gap-1 border-b px-4">
+
+      <thead>
+        <th className="w-full h-[6vh] flex justify-between gap-1 border-b px-4">
           <p className="w-[5%] flex items-center justify-start text-sm font-semibold">
             #
           </p>
@@ -42,11 +43,13 @@ const Table = () => {
           <p className="w-[10%] flex items-center justify-start  text-sm font-semibold">
             Status
           </p>
-        </head>
-        <body className="w-full h-[60vh] border-b overflow-y-scroll scrollbar-hide">
+        </th>
+      </thead>
+      <tbody>
+        <div className="w-full max-h-[60vh] border-b overflow-y-scroll scrollbar-hide">
           {item.map((user, idx) => (
             <div
-              className={`w-full h-fit py-2 overflow-y-auto flex justify-between gap-1 px-4  border-b cursor-default ${
+              className={`w-full h-fit py-4 overflow-y-auto flex justify-between gap-1 px-4  border-b cursor-default ${
                 idx % 2 !== 0 && 'bg-gray-50'
               } `}
               key={idx}
@@ -77,10 +80,10 @@ const Table = () => {
               </p>
             </div>
           ))}
-        </body>
-        <footer className="w-full h-[6vh]"></footer>
-      </div>
-    </div>
+        </div>
+      </tbody>
+      <footer className="w-full h-[6vh]"></footer>
+    </table>
   );
 };
 export default Table;

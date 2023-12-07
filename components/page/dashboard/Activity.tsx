@@ -1,68 +1,68 @@
-import React from "react";
-import { FaUserAlt } from "react-icons/fa";
-import { SlOptionsVertical } from "react-icons/sl";
+import React from 'react';
+import { FaUserAlt } from 'react-icons/fa';
+import { SlOptionsVertical } from 'react-icons/sl';
 
 const Activity = () => {
   const Userslist = [
     {
-      name: "james Anderson",
-      desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam",
+      name: 'james Anderson',
+      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
     },
     {
-      name: "Vector sam",
-      desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam",
+      name: 'Vector sam',
+      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
     },
     {
-      name: "Nathan stone",
-      desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam",
+      name: 'Nathan stone',
+      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
     },
     {
-      name: "Emma jeffery",
-      desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam",
+      name: 'Emma jeffery',
+      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
     },
     {
-      name: "Emma jeffery",
-      desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam",
+      name: 'Emma jeffery',
+      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
     },
     {
-      name: "Emma jeffery",
-      desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam",
+      name: 'Emma jeffery',
+      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
     },
     {
-      name: "Emma jeffery",
-      desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam",
+      name: 'Emma jeffery',
+      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
     },
   ];
 
   const IntegrationList = [
     {
-      name: "anderson john",
-      desc: "integrating the usersproductApi",
+      name: 'anderson john',
+      desc: 'integrating the usersproductApi',
     },
     {
-      name: "Vector sam",
-      desc: "integrating the usersAuthApi",
+      name: 'Vector sam',
+      desc: 'integrating the usersAuthApi',
     },
     {
-      name: "Emma jeffery",
-      desc: "integrating the userscartApi",
+      name: 'Emma jeffery',
+      desc: 'integrating the userscartApi',
     },
     {
-      name: "anderson john",
-      desc: "integrating the userscheckoutApi",
+      name: 'anderson john',
+      desc: 'integrating the userscheckoutApi',
     },
     {
-      name: "anderson john",
-      desc: "integrating the userscheckoutApi",
+      name: 'anderson john',
+      desc: 'integrating the userscheckoutApi',
     },
     {
-      name: "Nathan stone",
-      desc: "integrating the userscheckoutApi",
+      name: 'Nathan stone',
+      desc: 'integrating the userscheckoutApi',
     },
   ];
   return (
     <div className="col-span-1 grid grid-rows-2 flex-1 rounded-md mb-2 ">
-      <section className="h-[75vh] bg-white overflow-hidden rounded-md py-2 px-5">
+      <section className="h-[75vh] bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 overflow-hidden rounded-md py-2 px-5">
         <div className="w-full h-[3vh] my-2 flex items-center justify-between">
           <h3 className="font-semibold">Activity</h3>
           <SlOptionsVertical />
@@ -84,7 +84,7 @@ const Activity = () => {
           ))}
         </div>
       </section>
-      <section className="flex-1 bg-white overflow-hidden rounded-md py-2 px-5">
+      <section className="flex-1 bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 overflow-hidden rounded-md py-2 px-5">
         <div className="w-full h-[3vh] my-2 flex items-center justify-between">
           <h3 className="font-semibold">IntegrationList</h3>
           <SlOptionsVertical />

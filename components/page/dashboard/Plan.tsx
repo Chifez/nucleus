@@ -101,6 +101,7 @@ const Plan = () => {
       ],
     },
   ];
+
   const goToNextSlide = () => {
     console.log('clicked', currentIndex);
     if (currentIndex == lists.length - 1) {
@@ -111,7 +112,7 @@ const Plan = () => {
 
   return (
     <div className="w-full h-[60vh] mb-2 grid grid-cols-2 gap-2">
-      <div className="bg-white rounded-md w-full px-3 py-1">
+      <div className="bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 rounded-md w-full px-3 py-1">
         <div className="flex items-center justify-between px-2 ">
           <span>
             <h1 className="text-xl font-semibold">P&L</h1>
@@ -121,7 +122,7 @@ const Plan = () => {
         </div>
         <PLchart />
       </div>
-      <div className="bg-white rounded-md w-full px-3 py-1 ">
+      <div className="bg-white dark:bg-[#0c0c0d] dark:text-white rounded-md w-full px-3 py-1 ">
         <div className="flex items-center justify-between px-2">
           <span>
             <h1 className="text-xl font-semibold">Current Plan</h1>
@@ -137,7 +138,9 @@ const Plan = () => {
               <CurrentPlanCard item={item} key={index} />
             ))}
           </Carousel>
-          <MdNavigateNext className="w-7 h-7" onClick={goToNextSlide} />
+          <button onClick={goToNextSlide}>
+            <MdNavigateNext className="w-7 h-7" />
+          </button>
         </div>
         <Carousel currentIndex={currentIndex}>
           {lists.map((item, index) => (

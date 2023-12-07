@@ -7,13 +7,16 @@ interface Props {
 const Carousel = ({ children, currentIndex }: Props) => {
   const [translateSize, setTranslateSize] = useState(0);
 
+  // const translate = `-translate-x-[${translateSize}%]`;
+
   useEffect(() => {
     setTranslateSize(currentIndex * 100);
+    console.log(translateSize);
   }, [currentIndex]);
   return (
     <div className="w-full flex overflow-x-hidden">
       <div
-        className={`-translate-x-[${translateSize}%] w-full flex transition `}
+        className={`-translate-x-[${translateSize}%] w-full flex transition`}
       >
         {children}
       </div>
