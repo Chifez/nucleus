@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import PLchart from '@/components/page/dashboard/PLchart';
 import { CgOptions } from 'react-icons/cg';

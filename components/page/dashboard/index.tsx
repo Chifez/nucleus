@@ -19,8 +19,10 @@ export default function Home() {
       <Layout>
         <div className="flex flex-col w-full h-full ">
           <header>
-            <h1 className="text-3xl font-semibold">DashBoard</h1>
-            <p>welcome stranger </p>
+            <h1 className="text-3xl font-semibold dark:text-white">
+              DashBoard
+            </h1>
+            <p className="dark:text-white">welcome stranger </p>
           </header>
           <div className="flex-1 grid grid-cols-3 gap-3 py-2 w-full h-full">
             <div className="col-span-2 grid grid-flow-row gap-3 rounded-md w-full h-full">

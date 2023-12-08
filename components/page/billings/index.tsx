@@ -5,11 +5,12 @@ import BillSummary from './BillSummary';
 import BillGrowth from './BillGrowth';
 import Calendar from './Calendar';
 import UserLocation from './UserLocation';
+import Chart from './Chart';
 
 const Billing = () => {
   const bills = [
-    { title: 'Recent Bills', amount: '$25,000', chart: 'coming soon' },
-    { title: 'Paid Bills', amount: '$15,000', chart: 'coming soon' },
+    { title: 'Recent Bills', amount: '$25,000', chart: <Chart /> },
+    { title: 'Paid Bills', amount: '$15,000', chart: <Chart /> },
   ];
   return (
     <>

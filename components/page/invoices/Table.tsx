@@ -1,4 +1,5 @@
 import Chip from '@/components/Chip';
+import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
 
 const Table = () => {
   const item = new Array(20).fill(10);
@@ -82,7 +83,14 @@ const Table = () => {
           ))}
         </div>
       </tbody>
-      <footer className="w-full h-[6vh]"></footer>
+      <footer className="w-full h-[6vh] flex items-center justify-end gap-4 px-4">
+        <button className="rounded-full w-7 h-7 p-1 flex items-center border border-blue-300 justify-center">
+          <MdNavigateBefore />
+        </button>
+        <button className=" rounded-full w-7 h-7 p-1 flex items-center justify-center border border-blue-300">
+          <MdNavigateNext />
+        </button>
+      </footer>
     </table>
   );
 };

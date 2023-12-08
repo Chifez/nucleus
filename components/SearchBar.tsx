@@ -8,7 +8,7 @@ const SearchBar = () => {
         <input
           type="text"
           placeholder="Search invoice"
-          className="w-full focus-within:outline-none"
+          className="w-full focus-within:outline-none bg-transparent"
         />
       </div>
     </div>

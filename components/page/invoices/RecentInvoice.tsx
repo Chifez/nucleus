@@ -5,15 +5,15 @@ const RecentInvoice = () => {
   const Userslist = [
     {
       name: 'james Anderson',
-      calls: 4,
+      calls: 400,
     },
     {
       name: 'Vector sam',
-      calls: 14,
+      calls: 140,
     },
     {
       name: 'Nathan stone',
-      calls: 10,
+      calls: 100,
     },
     {
       name: 'Emma jeffery',
@@ -21,15 +21,15 @@ const RecentInvoice = () => {
     },
     {
       name: 'Emma jeffery',
-      calls: 24,
+      calls: 240,
     },
     {
       name: 'Emma jeffery',
-      calls: 8,
+      calls: 80,
     },
     {
       name: 'Emma jeffery',
-      calls: 15,
+      calls: 150,
     },
   ];
 

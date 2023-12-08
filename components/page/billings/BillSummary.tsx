@@ -1,4 +1,5 @@
 import { CgOptions } from 'react-icons/cg';
+import Chart from '../dashboard/Apichart';
 const BillSummary = () => {
   return (
     <div className="bg-white rounded-md w-full h-[50vh] p-4 mb-2">
