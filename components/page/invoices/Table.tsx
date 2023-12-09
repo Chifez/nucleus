@@ -15,7 +15,7 @@ const Table = () => {
     due: 'text-red-300 bg-red-100',
   };
   return (
-    <table className="w-full bg-white rounded-md">
+    <table className="h-full w-full bg-white dark:bg-[#0c0c0d] dark:text-white rounded-md">
       {/* <p>Invoice Table</p> */}
 
       <thead>
@@ -47,11 +47,11 @@ const Table = () => {
         </th>
       </thead>
       <tbody>
-        <div className="w-full max-h-[60vh] border-b overflow-y-scroll scrollbar-hide">
+        <div className="w-full max-h-[63vh] border-b overflow-y-scroll scrollbar-hide">
           {item.map((user, idx) => (
             <div
               className={`w-full h-fit py-4 overflow-y-auto flex justify-between gap-1 px-4  border-b cursor-default ${
-                idx % 2 !== 0 && 'bg-gray-50'
+                idx % 2 !== 0 && 'bg-gray-50 dark:bg-gray-900'
               } `}
               key={idx}
             >
@@ -84,10 +84,10 @@ const Table = () => {
         </div>
       </tbody>
       <footer className="w-full h-[6vh] flex items-center justify-end gap-4 px-4">
-        <button className="rounded-full w-7 h-7 p-1 flex items-center border border-blue-300 justify-center">
+        <button className="rounded-full w-7 h-7 p-1 flex hover:bg-[#41395b] hover:text-white items-center border border-blue-300 justify-center">
           <MdNavigateBefore />
         </button>
-        <button className=" rounded-full w-7 h-7 p-1 flex items-center justify-center border border-blue-300">
+        <button className=" rounded-full w-7 h-7 p-1 flex items-center justify-center hover:bg-[#41395b] hover:text-white border border-blue-300">
           <MdNavigateNext />
         </button>
       </footer>

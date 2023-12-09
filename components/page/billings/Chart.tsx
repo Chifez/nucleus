@@ -3,7 +3,11 @@ import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts';
 const Chart = () => {
   const option = {
-    legend: {},
+    legend: {
+      textStyle: {
+        color: '#92959E',
+      },
+    },
     tooltip: {},
     dataset: {
       source: [

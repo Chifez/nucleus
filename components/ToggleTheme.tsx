@@ -20,8 +20,16 @@ const ToggleTheme = () => {
     return null;
   }
   return (
-    <button onClick={toggleTheme}>
-      {theme === 'light' ? <RiMoonLine /> : <RiSunLine />}
+    <button
+      onClick={toggleTheme}
+      title="toggle theme"
+      className=" bg-[#EAEAEA] dark:bg-white flex items-center justify-center p-2 rounded-full"
+    >
+      {theme === 'light' ? (
+        <RiMoonLine className="text-[#0c0c0d]" />
+      ) : (
+        <RiSunLine className="text-[#0c0c0d]" />
+      )}
     </button>
   );
 };

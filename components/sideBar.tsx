@@ -12,6 +12,7 @@ import {
   TbSquareRoundedChevronsRightFilled,
   TbSquareRoundedChevronsLeftFilled,
 } from 'react-icons/tb';
+import ToggleTheme from './ToggleTheme';
 const links = [
   { id: 1, name: 'profile', links: '/', icon: <FaUserAlt /> },
   { id: 2, name: 'Billings', links: '/billings', icon: <RiBillFill /> },
@@ -42,7 +43,7 @@ const SideBar = () => {
         <h1 className={`${isOpen && 'hidden'}`}>Nucleus</h1>
       </div>
       <div
-        className="absolute -right-5 top-9 w-8 h-8 text-[#551FFF] hover:text-[#D0D2DA] cursor-pointer"
+        className="absolute -right-5 top-9 w-8 h-8 text-[#551FFF] dark:text-white hover:text-[#D0D2DA] cursor-pointer"
         onClick={toggleOpen}
       >
         {isOpen ? (
@@ -51,35 +52,38 @@ const SideBar = () => {
           <TbSquareRoundedChevronsLeftFilled className="w-6 h-6" />
         )}
       </div>
-      {links.map((item, idx) => (
-        <Link
-          href={item.links}
-          key={idx}
-          className={`flex items-center justify-center ${
-            isOpen ? 'px-5' : 'px-8'
-          } py-4 gap-2 cursor-pointer hover:text-[#551FFF] hover:bg-[#F3F0FF] rounded-3xl ${
-            currentPath == item.links
-              ? 'bg-[#F3F0FF] text-[#551FFF]'
-              : 'text-[#D0D2DA]'
-          }`}
-          title={isOpen ? item.name : ''}
-        >
-          <span
-            className={`flex justify-center gap-2 
+      <div className="h-full flex flex-col justify-between">
+        {links.map((item, idx) => (
+          <Link
+            href={item.links}
+            key={idx}
+            className={`flex items-center justify-center ${
+              isOpen ? 'px-5' : 'px-8'
+            } py-4 gap-2 cursor-pointer hover:text-[#551FFF] hover:bg-[#F3F0FF] rounded-3xl ${
+              currentPath == item.links
+                ? 'bg-[#F3F0FF] text-[#551FFF]'
+                : 'text-[#D0D2DA]'
+            }`}
+            title={isOpen ? item.name : ''}
+          >
+            <span
+              className={`flex justify-center gap-2 
              ${isOpen ? 'w-fit items-stretch' : 'w-20 items-stretch'}
             `}
-          >
-            <div>{item.icon}</div>
-            <h1
-              className={`leading-none w-full text-sm capitalize ${
-                isOpen && 'hidden'
-              } `}
             >
-              {item.name}
-            </h1>
-          </span>
-        </Link>
-      ))}
+              <div>{item.icon}</div>
+              <h1
+                className={`leading-none w-full text-sm capitalize ${
+                  isOpen && 'hidden'
+                } `}
+              >
+                {item.name}
+              </h1>
+            </span>
+          </Link>
+        ))}
+      </div>
+      <ToggleTheme />
     </div>
   );
 };

@@ -23,22 +23,22 @@ const Billing = () => {
       <Layout>
         <div className="h-full">
           <header>
-            <h1 className="text-3xl font-semibold">Billings</h1>
-            <p>Information about your bills</p>
+            <h1 className="text-3xl font-semibold dark:text-white">Billings</h1>
+            <p className="dark:text-white">Information about your bills</p>
           </header>
-          <div className="grid grid-cols-3 gap-2 w-full border py-2">
-            <div className="col-span-2 rounded-md w-full ">
-              <div className="flex w-full gap-2">
+          <div className="grid grid-cols-3 gap-3 w-full py-2">
+            <div className="col-span-2 flex flex-col gap-3 rounded-md w-full ">
+              <div className="flex w-full gap-3">
                 {bills.map((item, idx) => (
                   <BillsCard billItem={item} key={idx} />
                 ))}
               </div>
-              <div>
+              <div className="flex flex-col gap-3 ">
                 <BillSummary />
                 <BillGrowth />
               </div>
             </div>
-            <span className="col-span-1 flex flex-col gap-2 h-full">
+            <span className="col-span-1 flex flex-col gap-3 h-full">
               <Calendar />
               <UserLocation />
             </span>

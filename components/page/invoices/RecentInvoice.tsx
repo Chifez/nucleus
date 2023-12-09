@@ -35,7 +35,7 @@ const RecentInvoice = () => {
 
   return (
     <div className="flex-1 h-full rounded-md">
-      <section className="h-full bg-white overflow-hidden rounded-md px-5 py-2">
+      <section className="h-full bg-white dark:bg-[#0c0c0d] dark:text-white overflow-hidden rounded-md px-5 py-2">
         <h3 className="font-semibold">Recent Invoice</h3>
         <div className="flex mt-4">
           <div className="flex-1 text-sm font-semibold">

@@ -13,6 +13,9 @@ const PLchart = () => {
       itemWidth: 5,
       itemHeight: 5,
       itemStyle: {},
+      textStyle: {
+        color: '#92959E',
+      },
     },
     series: [
       {

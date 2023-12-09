@@ -86,7 +86,7 @@ const Activity = () => {
       </section>
       <section className="flex-1 bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 overflow-hidden rounded-md py-2 px-5">
         <div className="w-full h-[3vh] my-2 flex items-center justify-between">
-          <h3 className="font-semibold">IntegrationList</h3>
+          <h3 className="font-semibold">Integration List</h3>
           <SlOptionsVertical />
         </div>
         <div className="h-[60vh] overflow-y-scroll scrollbar-hide">

@@ -21,22 +21,22 @@ const Invoice = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <div>
+        <div className="h-full">
           <header>
-            <h1 className="text-3xl font-semibold">Invoices</h1>
-            <p>See your latest Invoices</p>
+            <h1 className="text-3xl font-semibold dark:text-white">Invoices</h1>
+            <p className="dark:text-white">See your latest Invoices</p>
           </header>
-          <div>
-            <div className="grid grid-cols-4 gap-2 w-full my-4">
+          <div className="max-h-full ">
+            <div className="grid grid-cols-4 gap-3 w-full my-4">
               <span className="col-span-3 flex items-center justify-between">
                 <SearchBar />
                 <div className="flex items-center gap-2">
-                  <button className="bg-white rounded-full w-10 h-10 p-1 flex items-center justify-center">
+                  <button className="bg-white dark:bg-[#0c0c0d] dark:text-white rounded-full w-10 h-10 p-1 flex items-center justify-center">
                     <IoFilter />
                   </button>
 
-                  <div className="flex items-center gap-2 bg-white w-42 h-10 rounded-full px-3">
-                    <div className="flex items-center gap-2 ">
+                  <div className="flex items-center gap-2 bg-white dark:bg-[#0c0c0d] dark:text-white w-42 h-10 rounded-full px-3">
+                    <div className="flex items-center gap-2 dark:text-white">
                       <FaCalendarAlt />
                       <p className="text-sm">December 2023</p>
                     </div>
@@ -45,7 +45,7 @@ const Invoice = () => {
                 </div>
               </span>
             </div>
-            <div className="grid grid-cols-4 gap-2 w-full ">
+            <div className="grid grid-cols-4 gap-3 w-full ">
               <div className="col-span-3">
                 <Table />
               </div>
