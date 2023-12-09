@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import SideBar from './SideBar';
-import ToggleTheme from './ToggleTheme';
 
 interface Link {
   id: number;
