@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
+    "@googlemaps/js-api-loader": "^1.16.2",
     "@next/font": "13.1.6",
     "@prisma/client": "^4.14.1",
+    "@react-google-maps/api": "^2.19.2",
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",

@@ -12,6 +12,7 @@ const PLchart = () => {
       left: '1%',
       itemWidth: 5,
       itemHeight: 5,
+      borderRadius: 5,
       itemStyle: {},
       textStyle: {
         color: '#92959E',

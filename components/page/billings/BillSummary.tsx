@@ -1,6 +1,82 @@
 import { CgOptions } from 'react-icons/cg';
 import Chart from '../dashboard/Apichart';
+import ReactECharts from 'echarts-for-react';
+import * as echarts from 'echarts';
 const BillSummary = () => {
+  const option = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow',
+      },
+    },
+    grid: {
+      top: '10%',
+      bottom: '40%',
+    },
+    legend: {
+      data: ['API calls', 'Integrations', 'Hosting'],
+      textStyle: {
+        color: '#92959E',
+      },
+    },
+    // toolbox: {
+    //   show: true,
+    //   orient: 'vertical',
+    //   left: 'right',
+    //   top: 'center',
+    //   feature: {
+    //     mark: { show: true },
+    //     dataView: { show: true, readOnly: false },
+    //     magicType: { show: true, type: ['line', 'bar', 'stack'] },
+    //     restore: { show: true },
+    //     saveAsImage: { show: true },
+    //   },
+    // },
+    xAxis: [
+      {
+        type: 'category',
+        axisTick: { show: false },
+        data: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      },
+    ],
+    yAxis: [
+      {
+        type: 'value',
+      },
+    ],
+    series: [
+      {
+        name: 'API calls',
+        type: 'bar',
+        barGap: 0,
+        // label: labelOption,
+        emphasis: {
+          focus: 'series',
+        },
+        data: [320, 332, 301, 334, 390],
+      },
+      {
+        name: 'Integrations',
+        type: 'bar',
+        // label: labelOption,
+        emphasis: {
+          focus: 'series',
+        },
+        data: [220, 182, 191, 234, 290],
+      },
+      {
+        name: 'Hosting',
+        type: 'bar',
+        // label: labelOption,
+        emphasis: {
+          focus: 'series',
+        },
+        data: [150, 232, 201, 154, 190],
+      },
+    ],
+  };
+
   return (
     <div className="bg-white dark:bg-[#0c0c0d] dark:text-white rounded-md w-full h-[50vh] p-4 ">
       <div className="flex items-center justify-between px-5 mb-10 ">
@@ -9,7 +85,8 @@ const BillSummary = () => {
       </div>
       <div className="h-[45vh]">
         {/* <Chart /> */}
-        <p>chart</p>
+        <ReactECharts option={option} />
+        {/* <p>chart</p> */}
       </div>
     </div>
   );
