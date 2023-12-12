@@ -1,5 +1,5 @@
-import Layout from '@/components/Layout';
-import SearchBar from '@/components/SearchBar';
+import Layout from './../../Layout';
+import SearchBar from './../../SearchBar';
 import { IoFilter } from 'react-icons/io5';
 
 import Head from 'next/head';
