@@ -12,7 +12,7 @@ import {
   TbSquareRoundedChevronsRightFilled,
   TbSquareRoundedChevronsLeftFilled,
 } from 'react-icons/tb';
-import ToggleTheme from './ToggleTheme';
+import ToggleTheme from '@/components/ToggleTheme';
 const links = [
   { id: 1, name: 'profile', links: '/', icon: <FaUserAlt /> },
   { id: 2, name: 'Billings', links: '/billings', icon: <RiBillFill /> },
