@@ -6,15 +6,20 @@ import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
 import { SlOptionsVertical } from 'react-icons/sl';
 
 const Table = () => {
-  const [isOptionOpen, setIsOptionOpen] = useState(false);
+  const [selectedItemId, setSelectedItemId] = useState(null);
 
-  const handleOpenOption = () => {
-    setIsOptionOpen(!isOptionOpen);
+  const handleCloseOption = () => {
+    setSelectedItemId(null);
   };
 
-  const handlecloseOption = () => {
-    setIsOptionOpen(false);
+  const handleOpenOption = (itemId) => {
+    if (selectedItemId === null) {
+      setSelectedItemId(itemId);
+    } else {
+      handleCloseOption();
+    }
   };
+
   const optionlist = {
     optionList: ['option 1', 'option 2'],
   };
@@ -64,52 +69,57 @@ const Table = () => {
         </th>
       </thead>
       <tbody>
-        <div className="w-full max-h-[63vh] border-b overflow-y-scroll scrollbar-hide">
+        <div className=" w-full max-h-[63vh] border-b overflow-y-scroll scrollbar-hide">
           {item.map((user, idx) => (
-            <div
-              className={`w-full h-fit py-4 overflow-y-auto flex justify-between gap-1 px-4  border-b cursor-default ${
-                idx % 2 !== 0 && 'bg-gray-50 dark:bg-gray-900'
-              } `}
-              key={idx}
-            >
-              <p className="w-[5%] flex items-center justify-start text-sm">
-                {idx + 1}
-              </p>
-              <p className="flex-1 flex items-center justify-start text-sm">
-                #32A238BJW
-              </p>
-              <p className="flex-1 flex items-center justify-start text-sm">
-                Victor Adams
-              </p>
-              <p className="w-[12%] flex items-center justify-start">
-                <Chip value={'Enterprise'} style={PLAN_STYLES.enterprise} />
-              </p>
-              <p className="w-[10%] flex items-center justify-center text-sm">
-                2500
-              </p>
-              <p className="w-[10%] flex items-center justify-start  text-sm">
-                22/01/23
-              </p>
-              <p className="w-[10%] flex items-center justify-start  text-sm">
-                $300
-              </p>
-              <div className="relative w-[10%] flex items-center justify-start">
-                <Chip value={'Pending'} style={STATUS.pending} />
-                <div>
-                  <SlOptionsVertical
-                    onClick={handleOpenOption}
-                    className="cursor-pointer"
-                  />
-                  <Modal
-                    isDropDown={true}
-                    openModal={isOptionOpen}
-                    onClose={handlecloseOption}
-                    extrastyle="absolute right-1 rounded-md z-50"
-                  >
-                    <DropDown list={optionlist} />
-                  </Modal>
+            <div className="relative">
+              <div
+                className={` w-full h-fit py-4 overflow-y-auto flex justify-between gap-1 px-4  border-b cursor-default ${
+                  idx % 2 !== 0 && 'bg-gray-50 dark:bg-gray-900'
+                } `}
+                key={idx}
+              >
+                <p className="w-[5%] flex items-center justify-start text-sm">
+                  {idx + 1}
+                </p>
+                <p className="flex-1 flex items-center justify-start text-sm">
+                  #32A238BJW
+                </p>
+                <p className="flex-1 flex items-center justify-start text-sm">
+                  Victor Adams
+                </p>
+                <p className="w-[12%] flex items-center justify-start">
+                  <Chip value={'Enterprise'} style={PLAN_STYLES.enterprise} />
+                </p>
+                <p className="w-[10%] flex items-center justify-center text-sm">
+                  2500
+                </p>
+                <p className="w-[10%] flex items-center justify-start text-sm">
+                  22/01/23
+                </p>
+                <p className="w-[10%] flex items-center justify-start  text-sm">
+                  $300
+                </p>
+                <div className="w-[10%] flex items-center justify-between">
+                  <Chip value={'Pending'} style={STATUS.pending} />
+                  <div>
+                    <SlOptionsVertical
+                      onClick={() => handleOpenOption(idx)}
+                      className="cursor-pointer"
+                    />
+                  </div>
                 </div>
               </div>
+
+              <Modal
+                isDropDown={true}
+                openModal={selectedItemId === idx}
+                onClose={handleCloseOption}
+                extrastyle={`absolute right-4 ${
+                  idx === item.length - 1 ? '-top-16' : 'top-10'
+                } rounded-md z-50`}
+              >
+                <DropDown list={optionlist} />
+              </Modal>
             </div>
           ))}
         </div>
