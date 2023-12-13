@@ -1,9 +1,14 @@
+import DropDown from '@/components/DropDown';
 import Modal from '@/components/Modal';
 import Chart from '@/components/page/dashboard/Apichart';
 import { useState } from 'react';
 import { CgOptions } from 'react-icons/cg';
 const Apicalls = () => {
   const [isOptionOpen, setIsOptionOpen] = useState(false);
+
+  const optionlist = {
+    optionList: ['option 1', 'option 2'],
+  };
 
   const handleOpenOption = () => {
     setIsOptionOpen(!isOptionOpen);
@@ -20,7 +25,7 @@ const Apicalls = () => {
         </div>
         <div className="relative">
           <CgOptions
-            className=" w-5 h-5 text-[#D0D2DA]"
+            className=" w-5 h-5 text-[#D0D2DA] cursor-pointer"
             onClick={handleOpenOption}
           />
           <Modal
@@ -29,10 +34,7 @@ const Apicalls = () => {
             onClose={handlecloseOption}
             extrastyle="absolute right-1 rounded-md z-50"
           >
-            <div>options</div>
-            <div>options</div>
-            <div>options</div>
-            <div>options</div>
+            <DropDown list={optionlist} />
           </Modal>
         </div>
       </div>

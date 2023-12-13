@@ -1,3 +1,4 @@
+import DropDown from '@/components/DropDown';
 import Modal from '@/components/Modal';
 import React, { useState } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
@@ -12,6 +13,10 @@ const Integration = () => {
 
   const handlecloseOption = () => {
     setIsOptionOpen(false);
+  };
+
+  const optionlist = {
+    optionList: ['option 1', 'option 2'],
   };
 
   const IntegrationList = [
@@ -45,17 +50,17 @@ const Integration = () => {
       <div className="w-full h-[3vh] my-2 flex items-center justify-between">
         <h3 className="font-semibold">Integration List</h3>
         <div className="relative">
-          <SlOptionsVertical onClick={handleOpenOption} />
+          <SlOptionsVertical
+            onClick={handleOpenOption}
+            className="cursor-pointer"
+          />
           <Modal
             isDropDown={true}
             openModal={isOptionOpen}
             onClose={handlecloseOption}
             extrastyle="absolute right-1 rounded-md z-50"
           >
-            <div>options</div>
-            <div>options</div>
-            <div>options</div>
-            <div>options</div>
+            <DropDown list={optionlist} />
           </Modal>
         </div>
       </div>

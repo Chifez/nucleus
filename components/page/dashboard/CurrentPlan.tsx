@@ -7,6 +7,7 @@ import { MdNavigateNext } from 'react-icons/md';
 import CurrentPlanCard from './CurrentPlanCard';
 import Carousel from '@/components/Carousel';
 import Modal from '@/components/Modal';
+import DropDown from '@/components/DropDown';
 
 const CurrentPlan = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,6 +19,10 @@ const CurrentPlan = () => {
 
   const handlecloseOption = () => {
     setIsOptionOpen(false);
+  };
+
+  const optionlist = {
+    optionList: ['option 1', 'option 2'],
   };
 
   const lists = [
@@ -132,7 +137,7 @@ const CurrentPlan = () => {
         </span>
         <div className="relative">
           <CgOptions
-            className="w-5 h-5 text-[#D0D2DA]"
+            className="w-5 h-5 text-[#D0D2DA] cursor-pointer"
             onClick={handleOpenOption}
           />
           <Modal
@@ -141,10 +146,7 @@ const CurrentPlan = () => {
             onClose={handlecloseOption}
             extrastyle="absolute right-1 rounded-md z-50"
           >
-            <div>options</div>
-            <div>options</div>
-            <div>options</div>
-            <div>options</div>
+            <DropDown list={optionlist} />
           </Modal>
         </div>
       </div>

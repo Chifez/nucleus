@@ -2,7 +2,24 @@ import { CgOptions } from 'react-icons/cg';
 import Chart from '../dashboard/Apichart';
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts';
+import Modal from '@/components/Modal';
+import DropDown from '@/components/DropDown';
+import { useState } from 'react';
 const BillSummary = () => {
+  const [isOptionOpen, setIsOptionOpen] = useState(false);
+
+  const optionlist = {
+    optionList: ['option 1', 'option 2'],
+  };
+
+  const handleOpenOption = () => {
+    setIsOptionOpen(!isOptionOpen);
+  };
+
+  const handlecloseOption = () => {
+    setIsOptionOpen(false);
+  };
+
   const option = {
     tooltip: {
       trigger: 'axis',
@@ -81,7 +98,20 @@ const BillSummary = () => {
     <div className="bg-white dark:bg-[#0c0c0d] dark:text-white rounded-md w-full h-[50vh] p-4 ">
       <div className="flex items-center justify-between px-5 mb-10 ">
         <div className="text-xl font-semibold ">Bill summary</div>
-        <CgOptions className="w-5 h-5 text-[#D0D2DA]" />
+        <div className="relative">
+          <CgOptions
+            className=" w-5 h-5 text-[#D0D2DA] cursor-pointer"
+            onClick={handleOpenOption}
+          />
+          <Modal
+            isDropDown={true}
+            openModal={isOptionOpen}
+            onClose={handlecloseOption}
+            extrastyle="absolute right-1 rounded-md z-50"
+          >
+            <DropDown list={optionlist} />
+          </Modal>
+        </div>
       </div>
       <div className="h-[45vh]">
         {/* <Chart /> */}

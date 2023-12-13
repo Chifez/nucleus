@@ -1,7 +1,24 @@
 import Chip from '@/components/Chip';
+import DropDown from '@/components/DropDown';
+import Modal from '@/components/Modal';
+import { useState } from 'react';
 import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
+import { SlOptionsVertical } from 'react-icons/sl';
 
 const Table = () => {
+  const [isOptionOpen, setIsOptionOpen] = useState(false);
+
+  const handleOpenOption = () => {
+    setIsOptionOpen(!isOptionOpen);
+  };
+
+  const handlecloseOption = () => {
+    setIsOptionOpen(false);
+  };
+  const optionlist = {
+    optionList: ['option 1', 'option 2'],
+  };
+
   const item = new Array(20).fill(10);
   const PLAN_STYLES = {
     basic: 'text-[#4ac7f8] bg-[#eaf9ff]',
@@ -76,9 +93,23 @@ const Table = () => {
               <p className="w-[10%] flex items-center justify-start  text-sm">
                 $300
               </p>
-              <p className="w-[10%] flex items-center justify-start">
+              <div className="relative w-[10%] flex items-center justify-start">
                 <Chip value={'Pending'} style={STATUS.pending} />
-              </p>
+                <div>
+                  <SlOptionsVertical
+                    onClick={handleOpenOption}
+                    className="cursor-pointer"
+                  />
+                  <Modal
+                    isDropDown={true}
+                    openModal={isOptionOpen}
+                    onClose={handlecloseOption}
+                    extrastyle="absolute right-1 rounded-md z-50"
+                  >
+                    <DropDown list={optionlist} />
+                  </Modal>
+                </div>
+              </div>
             </div>
           ))}
         </div>
