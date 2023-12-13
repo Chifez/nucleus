@@ -6,6 +6,7 @@ import Activity from './Activity';
 import Overview from './Overview';
 import Plan from './Plan';
 import Apicalls from './Apicalls';
+import RightPanel from './RightPanel';
 
 export default function Home() {
   return (
@@ -30,7 +31,7 @@ export default function Home() {
               <Apicalls />
               <Plan />
             </div>
-            <Activity />
+            <RightPanel />
           </div>
         </div>
       </Layout>

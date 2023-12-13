@@ -1,8 +1,9 @@
 import Modal from '@/components/Modal';
-import Chart from '@/components/page/dashboard/Apichart';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { CgOptions } from 'react-icons/cg';
-const Apicalls = () => {
+import PLchart from './PLchart';
+
+const Profit = () => {
   const [isOptionOpen, setIsOptionOpen] = useState(false);
 
   const handleOpenOption = () => {
@@ -13,11 +14,12 @@ const Apicalls = () => {
     setIsOptionOpen(false);
   };
   return (
-    <div className="bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 rounded-md w-full h-[70vh] p-4">
-      <div className="flex items-center justify-between px-5 mb-10">
-        <div className="text-xl font-semibold ">
-          API Calls in the last 6 hours
-        </div>
+    <div className="bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 rounded-md w-full px-3 py-1">
+      <div className="flex items-center justify-between px-2 ">
+        <span>
+          <h1 className="text-xl font-semibold">P&L</h1>
+          <p className="text-[#92959E] text-xs">Total profit growth of 30%</p>
+        </span>
         <div className="relative">
           <CgOptions
             className=" w-5 h-5 text-[#D0D2DA]"
@@ -36,11 +38,9 @@ const Apicalls = () => {
           </Modal>
         </div>
       </div>
-      <div className="h-[55vh]">
-        <Chart />
-      </div>
+      <PLchart />
     </div>
   );
 };
 
-export default Apicalls;
+export default Profit;

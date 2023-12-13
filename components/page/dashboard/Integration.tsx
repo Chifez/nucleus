@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
 import { SlOptionsVertical } from 'react-icons/sl';
 
-const Activity = () => {
+const Integration = () => {
   const [isOptionOpen, setIsOptionOpen] = useState(false);
 
   const handleOpenOption = () => {
@@ -14,41 +14,36 @@ const Activity = () => {
     setIsOptionOpen(false);
   };
 
-  const Userslist = [
+  const IntegrationList = [
     {
-      name: 'james Anderson',
-      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
+      name: 'anderson john',
+      desc: 'integrating the usersproductApi',
     },
     {
       name: 'Vector sam',
-      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
+      desc: 'integrating the usersAuthApi',
+    },
+    {
+      name: 'Emma jeffery',
+      desc: 'integrating the userscartApi',
+    },
+    {
+      name: 'anderson john',
+      desc: 'integrating the userscheckoutApi',
+    },
+    {
+      name: 'anderson john',
+      desc: 'integrating the userscheckoutApi',
     },
     {
       name: 'Nathan stone',
-      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
-    },
-    {
-      name: 'Emma jeffery',
-      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
-    },
-    {
-      name: 'Emma jeffery',
-      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
-    },
-    {
-      name: 'Emma jeffery',
-      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
-    },
-    {
-      name: 'Emma jeffery',
-      desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis a id excepturi eum ut possimus quos in mollitia ratione! Aliquam',
+      desc: 'integrating the userscheckoutApi',
     },
   ];
-
   return (
-    <section className="h-[75vh] bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 overflow-hidden rounded-md py-2 px-5">
+    <section className="flex-1 bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 overflow-hidden rounded-md py-2 px-5">
       <div className="w-full h-[3vh] my-2 flex items-center justify-between">
-        <h3 className="font-semibold">Activity</h3>
+        <h3 className="font-semibold">Integration List</h3>
         <div className="relative">
           <SlOptionsVertical onClick={handleOpenOption} />
           <Modal
@@ -64,8 +59,8 @@ const Activity = () => {
           </Modal>
         </div>
       </div>
-      <div className="h-[65vh] w-full overflow-y-scroll scrollbar-hide">
-        {Userslist.map((item, idx) => (
+      <div className="h-[60vh] overflow-y-scroll scrollbar-hide">
+        {IntegrationList.map((item, idx) => (
           <div
             key={idx}
             className="flex gap-2 my-3 py-4 border-b border-[#ECECEE]"
@@ -84,4 +79,4 @@ const Activity = () => {
   );
 };
 
-export default Activity;
+export default Integration;
