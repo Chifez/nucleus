@@ -34,7 +34,7 @@ const Apicalls = () => {
             onClose={handlecloseOption}
             extrastyle="absolute right-1 rounded-md z-50"
           >
-            <DropDown list={optionlist} />
+            <DropDown list={optionlist} handleClick={handlecloseOption} />
           </Modal>
         </div>
       </div>

@@ -1,14 +1,12 @@
 import Layout from '@/components/Layout';
 import SearchBar from '@/components/SearchBar';
-import { IoFilter } from 'react-icons/io5';
 
 import Head from 'next/head';
 import Table from './Table';
 import RecentInvoice from './RecentInvoice';
-import { RiArrowDropDownLine } from 'react-icons/ri';
-import { FaCalendarAlt } from 'react-icons/fa';
 import { IoRefresh } from 'react-icons/io5';
 import { MdOutlineFileDownload } from 'react-icons/md';
+import Filter from './Filter';
 // import { GoDownload } from 'react-icons/go';
 
 const Invoice = () => {
@@ -30,19 +28,7 @@ const Invoice = () => {
             <div className="grid grid-cols-4 gap-3 w-full my-4">
               <span className="col-span-3 flex items-center justify-between">
                 <SearchBar />
-                <div className="flex items-center gap-2">
-                  <button className="bg-white dark:bg-[#0c0c0d] dark:text-white rounded-full w-10 h-10 p-1 flex items-center justify-center">
-                    <IoFilter />
-                  </button>
-
-                  <div className="flex items-center gap-2 bg-white dark:bg-[#0c0c0d] dark:text-white w-42 h-10 rounded-full px-3">
-                    <div className="flex items-center gap-2 dark:text-white">
-                      <FaCalendarAlt />
-                      <p className="text-sm">December 2023</p>
-                    </div>
-                    <RiArrowDropDownLine />
-                  </div>
-                </div>
+                <Filter />
               </span>
             </div>
             <div className="grid grid-cols-4 gap-3 w-full ">

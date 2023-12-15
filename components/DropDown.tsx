@@ -1,6 +1,12 @@
 import React from 'react';
 
-const DropDown = ({ list }: any) => {
+const DropDown = ({
+  list,
+  handleClick,
+}: {
+  list: any;
+  handleClick: () => void;
+}) => {
   const { optionList } = list;
   return (
     <div className="cursor-pointer w-full">
@@ -8,8 +14,8 @@ const DropDown = ({ list }: any) => {
         <option
           value={item}
           key={idx}
-          className="hover:bg-slate-200 text-sm border-b px-2 py-1 last:border-b-0"
-          onClick={() => console.log('clicked')}
+          className="hover:bg-slate-200 hover:text-black text-sm border-b px-2 py-1 last:border-b-0"
+          onClick={handleClick}
         >
           {item}
         </option>

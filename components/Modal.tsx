@@ -62,7 +62,7 @@ const Modal = ({
     <>
       {openModal && (
         <div
-          className={`my-1 bg-white dark:bg-[#0c0c0d] dark:text-white py-1 border ${extrastyle}`}
+          className={`my-1 bg-white dark:bg-[#0c0c0d] dark:text-white  border ${extrastyle}`}
         >
           <div className="relative" ref={modalRef}>
             {!isDropDown && (
@@ -73,7 +73,7 @@ const Modal = ({
             )}
 
             <div
-              onClick={handleModalClick}
+              //   onClick={handleModalClick}
               className={`${!isDropDown && 'mt-1'}`}
             >
               {children}

@@ -118,7 +118,7 @@ const Table = () => {
                   idx === item.length - 1 ? '-top-16' : 'top-10'
                 } rounded-md z-50`}
               >
-                <DropDown list={optionlist} />
+                <DropDown list={optionlist} handleClick={handleCloseOption} />
               </Modal>
             </div>
           ))}

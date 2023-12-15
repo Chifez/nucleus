@@ -3,7 +3,7 @@ import BillsCard from './BillCard';
 import Layout from '@/components/Layout';
 import BillSummary from './BillSummary';
 import BillGrowth from './BillGrowth';
-import Calendar from './Calendar';
+import BillCalendar from './BillCalendar';
 import UserLocation from './UserLocation';
 import Chart from './Chart';
 
@@ -39,7 +39,7 @@ const Billing = () => {
               </div>
             </div>
             <span className="col-span-1 flex flex-col gap-3 h-full">
-              <Calendar />
+              <BillCalendar />
               <UserLocation />
             </span>
           </div>
