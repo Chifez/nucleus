@@ -71,12 +71,11 @@ const Table = () => {
       <tbody>
         <div className=" w-full max-h-[63vh] border-b overflow-y-scroll scrollbar-hide">
           {item.map((user, idx) => (
-            <div className="relative">
+            <div className="relative" key={idx}>
               <div
                 className={` w-full h-fit py-4 overflow-y-auto flex justify-between gap-1 px-4  border-b cursor-default ${
                   idx % 2 !== 0 && 'bg-gray-50 dark:bg-gray-900'
                 } `}
-                key={idx}
               >
                 <p className="w-[5%] flex items-center justify-start text-sm">
                   {idx + 1}
