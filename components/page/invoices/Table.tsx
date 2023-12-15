@@ -12,7 +12,7 @@ const Table = () => {
     setSelectedItemId(null);
   };
 
-  const handleOpenOption = (itemId) => {
+  const handleOpenOption = (itemId: any) => {
     if (selectedItemId === null) {
       setSelectedItemId(itemId);
     } else {

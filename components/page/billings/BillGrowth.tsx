@@ -80,7 +80,7 @@ const BillGrowth = () => {
         name: 'Paid Bills',
         type: 'bar',
         tooltip: {
-          valueFormatter: function (value) {
+          valueFormatter: function (value: any) {
             return value;
           },
         },
@@ -92,7 +92,7 @@ const BillGrowth = () => {
         name: 'Recent Bills',
         type: 'bar',
         tooltip: {
-          valueFormatter: function (value) {
+          valueFormatter: function (value: any) {
             return value;
           },
         },
@@ -105,7 +105,7 @@ const BillGrowth = () => {
         type: 'line',
         yAxisIndex: 1,
         tooltip: {
-          valueFormatter: function (value) {
+          valueFormatter: function (value: any) {
             return value + ' °%';
           },
         },
