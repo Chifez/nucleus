@@ -10,7 +10,7 @@ const BillsCard = ({ billItem }: any) => {
     'Paid Bills': 'text-white bg-green-300',
   };
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-fit md:h-full mb-2 md:mb-0">
       <div className=" bg-white dark:bg-[#0c0c0d] dark:text-white rounded-md w-full h-full px-3 py-2">
         <div className="flex justify-between">
           <h3 className="font-semibold">{billItem.title}</h3>
@@ -19,7 +19,7 @@ const BillsCard = ({ billItem }: any) => {
             style={BILL_STYLE[billItem.title as keyof BillType]}
           />
         </div>
-        <div className="h-[33vh]">
+        <div className="h-[33vh] ">
           {/* <div className="flex-1 h-[20vh] border border-red-500 "> */}
           {billItem.chart}
           {/* </div> */}

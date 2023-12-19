@@ -34,9 +34,9 @@ const SideBar = () => {
   const currentPath = router.pathname;
   return (
     <div
-      className={`${
+      className={`hidden ${
         isOpen ? 'w-[6vw]' : 'w-[15vw]'
-      } relative px-2 py-5 rounded-l-xl flex flex-col items-center gap-8 dark:bg-[#0c0c0d] transition-all duration-600`}
+      } relative px-2 py-5 rounded-l-xl lg:flex flex-col items-center gap-8 dark:bg-[#0c0c0d] transition-all duration-600`}
     >
       <div className=" flex items-center text-lg py-3 text-[#551fff]">
         <BiAtom className="w-6 h-6" />

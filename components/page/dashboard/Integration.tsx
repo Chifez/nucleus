@@ -46,8 +46,8 @@ const Integration = () => {
     },
   ];
   return (
-    <section className="flex-1 bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 overflow-hidden rounded-md py-2 px-5">
-      <div className="w-full h-[3vh] my-2 flex items-center justify-between">
+    <section className="flex-1 bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 overflow-hidden rounded-md py-2 ">
+      <div className="w-full h-[3vh]  flex items-center justify-between shadow-sm px-5 py-4">
         <h3 className="font-semibold">Integration List</h3>
         <div className="relative">
           <SlOptionsVertical
@@ -64,7 +64,7 @@ const Integration = () => {
           </Modal>
         </div>
       </div>
-      <div className="h-[60vh] overflow-y-scroll scrollbar-hide">
+      <div className="h-[60vh] overflow-y-scroll scrollbar-hide px-5">
         {IntegrationList.map((item, idx) => (
           <div
             key={idx}

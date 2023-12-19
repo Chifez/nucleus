@@ -18,20 +18,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <div className=" h-full">
+        <div className="h-full md:h-screen lg:h-full">
           <header>
             <h1 className="text-3xl font-semibold dark:text-white">
               DashBoard
             </h1>
             <p className="dark:text-white">welcome stranger </p>
           </header>
-          <div className="flex-1 grid grid-cols-3 gap-3 py-2 w-full h-full">
-            <div className="col-span-2 grid grid-flow-row gap-3 rounded-md w-full h-full">
+          <div className="md:flex-1 md:grid md:grid-cols-3 gap-3 py-2 w-full h-full">
+            <div className="col-span-2 flex flex-col gap-3 rounded-md w-full h-full">
               <Overview />
               <Apicalls />
               <Plan />
             </div>
-            <RightPanel />
+            <div>
+              <RightPanel />
+            </div>
           </div>
         </div>
       </Layout>

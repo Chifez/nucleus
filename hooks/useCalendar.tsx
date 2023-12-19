@@ -28,14 +28,16 @@ const useCalendar = () => {
     start: firstDayOfMonth,
     end: endOfMonth(firstDayOfMonth),
   });
-
-  const getPrevMonth = (event: React.MouseEvent<SVGSVGElement>) => {
+  // React.MouseEvent<SVGSVGElement>
+  const getPrevMonth = (event: any) => {
+    console.log('clicked prevMonth');
     event.preventDefault();
     const firstDayOfPrevMonth = add(firstDayOfMonth, { months: -1 });
     setCurrMonth(format(firstDayOfPrevMonth, 'MMM-yyyy'));
   };
 
-  const getNextMonth = (event: React.MouseEvent<SVGSVGElement>) => {
+  const getNextMonth = (event: any) => {
+    console.log('clicked nextMonth');
     event.preventDefault();
     const firstDayOfNextMonth = add(firstDayOfMonth, { months: 1 });
     setCurrMonth(format(firstDayOfNextMonth, 'MMM-yyyy'));

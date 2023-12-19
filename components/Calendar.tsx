@@ -24,7 +24,7 @@ const Calendar = () => {
               {' '}
               {format(firstDayOfMonth, 'MMMM yyyy')}{' '}
             </p>
-            <div className="flex items-center justify-evenly gap-4 sm:gap-12">
+            <div className="flex items-center justify-evenly gap-8 sm:gap-12">
               <MdNavigateBefore
                 className="w-4 h-4 cursor-pointer"
                 onClick={getPrevMonth}

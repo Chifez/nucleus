@@ -18,7 +18,7 @@ const Apicalls = () => {
     setIsOptionOpen(false);
   };
   return (
-    <div className="bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 rounded-md w-full h-[70vh] p-4">
+    <div className="bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 rounded-md w-full h-fit lg:h-[70vh] p-4">
       <div className="flex items-center justify-between px-5 mb-10">
         <div className="text-xl font-semibold ">
           API Calls in the last 6 hours
@@ -38,7 +38,7 @@ const Apicalls = () => {
           </Modal>
         </div>
       </div>
-      <div className="h-[55vh]">
+      <div className="lg:h-[55vh]">
         <Chart />
       </div>
     </div>

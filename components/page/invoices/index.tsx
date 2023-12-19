@@ -24,18 +24,18 @@ const Invoice = () => {
             <h1 className="text-3xl font-semibold dark:text-white">Invoices</h1>
             <p className="dark:text-white">See your latest Invoices</p>
           </header>
-          <div className="max-h-full ">
-            <div className="grid grid-cols-4 gap-3 w-full my-4">
-              <span className="col-span-3 flex items-center justify-between">
+          <div className="h-full">
+            <div className="grid lg:grid-cols-4 gap-3 w-full my-4">
+              <span className="lg:col-span-3 flex items-center justify-between">
                 <SearchBar />
                 <Filter />
               </span>
             </div>
-            <div className="grid grid-cols-4 gap-3 w-full ">
-              <div className="col-span-3">
+            <div className="md:grid lg:grid-cols-4 gap-3 w-full ">
+              <div className="lg:col-span-3">
                 <Table />
               </div>
-              <div className="flex-1 flex flex-col gap-2">
+              <div className="hidden flex-1 lg:flex flex-col gap-2">
                 <RecentInvoice />
                 <div className="flex gap-2 h-[10%]">
                   <div className="h-full w-full border border-[#002E94] rounded-md px-2  bg-white text-[#551fff] font-semibold flex justify-between items-center cursor-pointer">

@@ -31,24 +31,24 @@ const Overview = () => {
     },
   ];
   return (
-    <div className="p-5 bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 rounded-md w-full h-[20vh] flex items-center justify-around gap-1">
+    <div className="p-2 md:p-5 bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 rounded-md w-full lg:h-[20vh] grid grid-cols-2 lg:flex items-center justify-around gap-1">
       {lists.map((item, idx) => (
         <span
           key={idx}
           className={`${
-            idx != 3 ? 'border-r pl-3' : 'pl-3'
-          } border-[#ECECEE] w-full py-2 flex items-start justify-start gap-2`}
+            idx != 3 ? 'lg:border-r md:pl-1' : 'md:pl-1'
+          } border-[#ECECEE] w-full py-2 px-1 flex items-start justify-start gap-2`}
         >
           <div
-            className={`w-14 h-14 flex items-center justify-center border border-transparent rounded-xl ${item.bg} text-[${item.bg}]`}
+            className={`w-10 h-10 md:w-14 md:h-14  flex items-center justify-center border border-transparent rounded-xl ${item.bg} text-[${item.bg}]`}
           >
             {item.icon}
           </div>
           <div>
-            <p className="font-semibold capitalize text-[#92959E]">
+            <p className="text-sm md:text-base font-semibold capitalize text-[#92959E]">
               {item.title}
             </p>
-            <p className="text-base font-medium">{item.value}</p>
+            <p className="text-sm md:text-base font-medium">{item.value}</p>
           </div>
         </span>
       ))}

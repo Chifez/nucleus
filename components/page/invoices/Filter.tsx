@@ -37,7 +37,7 @@ const Filter = () => {
           isDropDown={true}
           openModal={openCalendarModal}
           onClose={handlecloseOption}
-          extrastyle="absolute right-[320px] top-32 rounded-md z-50 p-2"
+          extrastyle="absolute lg:right-[320px] top-32 rounded-md z-50 p-2"
         >
           <Calendar />
         </Modal>

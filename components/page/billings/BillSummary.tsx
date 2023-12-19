@@ -95,7 +95,7 @@ const BillSummary = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-[#0c0c0d] dark:text-white rounded-md w-full h-[50vh] p-4 ">
+    <div className="bg-white dark:bg-[#0c0c0d] dark:text-white rounded-md w-full h-fit md:h-[50vh] p-4 ">
       <div className="flex items-center justify-between px-5 mb-10 ">
         <div className="text-xl font-semibold ">Bill summary</div>
         <div className="relative">
@@ -113,7 +113,7 @@ const BillSummary = () => {
           </Modal>
         </div>
       </div>
-      <div className="h-[45vh]">
+      <div className="lg:h-[45vh] ">
         {/* <Chart /> */}
         <ReactECharts option={option} />
         {/* <p>chart</p> */}
