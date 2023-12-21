@@ -31,11 +31,11 @@ const Invoice = () => {
                 <Filter />
               </span>
             </div>
-            <div className="md:grid lg:grid-cols-4 gap-3 w-full ">
+            <div className="grid lg:grid-cols-4 gap-3 w-full ">
               <div className="lg:col-span-3">
                 <Table />
               </div>
-              <div className="hidden flex-1 lg:flex flex-col gap-2">
+              <div className="flex-1 lg:flex flex-col gap-2">
                 <RecentInvoice />
                 <div className="flex gap-2 h-[10%]">
                   <div className="h-full w-full border border-[#002E94] rounded-md px-2  bg-white text-[#551fff] font-semibold flex justify-between items-center cursor-pointer">

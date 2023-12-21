@@ -34,22 +34,24 @@ const SideBar = () => {
   const currentPath = router.pathname;
   return (
     <div
-      className={`hidden ${
-        isOpen ? 'w-[6vw]' : 'w-[15vw]'
-      } relative px-2 py-5 rounded-l-xl lg:flex flex-col items-center gap-8 dark:bg-[#0c0c0d] transition-all duration-600`}
+      className={`fixed bg-white w-[50vw] h-[100dvh]  z-50 md:h-full md:z-0 md:relative px-2 py-5 rounded-l-xl flex flex-col items-center gap-8 dark:bg-[#0c0c0d] transition-all duration-600 ${
+        isOpen
+          ? '-translate-x-[100%] md:translate-x-0 md:w-[6vw]'
+          : 'translate-x-0 md:w-[15vw]'
+      } `}
     >
       <div className=" flex items-center text-lg py-3 text-[#551fff]">
         <BiAtom className="w-6 h-6" />
-        <h1 className={`${isOpen && 'hidden'}`}>Nucleus</h1>
+        <h1 className={`${isOpen && 'md:hidden'}`}>Nucleus</h1>
       </div>
       <div
         className="absolute -right-5 top-9 w-8 h-8 text-[#551FFF] dark:text-white hover:text-[#D0D2DA] cursor-pointer"
         onClick={toggleOpen}
       >
         {isOpen ? (
-          <TbSquareRoundedChevronsRightFilled className="w-5 h-5" />
+          <TbSquareRoundedChevronsRightFilled className="w-10 h-10 md:w-5 md:h-5" />
         ) : (
-          <TbSquareRoundedChevronsLeftFilled className="w-6 h-6" />
+          <TbSquareRoundedChevronsLeftFilled className="w-10 h-10 md:w-6 md:h-6" />
         )}
       </div>
       <div className="h-full flex flex-col justify-between">
@@ -58,7 +60,7 @@ const SideBar = () => {
             href={item.links}
             key={idx}
             className={`flex items-center justify-center ${
-              isOpen ? 'px-5' : 'px-8'
+              isOpen ? 'px-8 md:px-5' : 'px-8'
             } py-4 gap-2 cursor-pointer hover:text-[#551FFF] hover:bg-[#F3F0FF] rounded-3xl ${
               currentPath == item.links
                 ? 'bg-[#F3F0FF] text-[#551FFF]'
@@ -67,14 +69,14 @@ const SideBar = () => {
             title={isOpen ? item.name : ''}
           >
             <span
-              className={`flex justify-center gap-2 
-             ${isOpen ? 'w-fit items-stretch' : 'w-20 items-stretch'}
+              className={`flex justify-center gap-2  
+             ${isOpen ? 'w-20 md:w-fit items-stretch' : 'w-20 items-stretch'}
             `}
             >
               <div>{item.icon}</div>
               <h1
                 className={`leading-none w-full text-sm capitalize ${
-                  isOpen && 'hidden'
+                  isOpen && 'md:hidden'
                 } `}
               >
                 {item.name}

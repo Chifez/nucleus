@@ -24,7 +24,7 @@ const Filter = () => {
         <IoFilter />
       </button>
 
-      <div
+      {/* <div
         onClick={handleToggleCalendar}
         className="flex items-center gap-2 bg-white dark:bg-[#0c0c0d] dark:text-white w-42 h-10 rounded-full px-3 cursor-pointer"
       >
@@ -41,7 +41,7 @@ const Filter = () => {
         >
           <Calendar />
         </Modal>
-      </div>
+      </div> */}
     </div>
   );
 };

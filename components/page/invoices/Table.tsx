@@ -51,19 +51,19 @@ const Table = () => {
           <p className="flex-1 flex items-center justify-start  text-sm font-semibold">
             Customser Name
           </p>
-          <p className="w-[12%] flex items-center justify-start  text-sm font-semibold">
+          <p className="w-[12%] hidden md:flex items-center justify-start  text-sm font-semibold">
             Plan
           </p>
-          <p className="w-[10%] flex items-center justify-start  text-sm font-semibold">
+          <p className="w-[10%] hidden md:flex items-center justify-start  text-sm font-semibold">
             API calls
           </p>
-          <p className="w-[10%] flex items-center justify-start  text-sm font-semibold">
+          <p className="w-[10%] hidden md:flex items-center justify-start  text-sm font-semibold">
             Date
           </p>
-          <p className="w-[10%] flex items-center justify-start  text-sm font-semibold">
+          <p className="w-[10%] hidden md:flex items-center justify-start  text-sm font-semibold">
             Price
           </p>
-          <p className="w-[10%] flex items-center justify-start  text-sm font-semibold">
+          <p className="w-[15%] md:w-[10%] flex items-center justify-start  text-sm font-semibold">
             Status
           </p>
         </th>
@@ -73,7 +73,7 @@ const Table = () => {
           {item.map((user, idx) => (
             <div className="relative" key={idx}>
               <div
-                className={` w-full h-fit py-4 overflow-y-auto flex justify-between gap-1 px-4  border-b cursor-default ${
+                className={`w-full h-fit py-4 overflow-y-auto flex justify-between gap-1 px-4  border-b cursor-default ${
                   idx % 2 !== 0 && 'bg-gray-50 dark:bg-gray-900'
                 } `}
               >
@@ -86,21 +86,21 @@ const Table = () => {
                 <p className="flex-1 flex items-center justify-start text-sm">
                   Victor Adams
                 </p>
-                <p className="w-[12%] flex items-center justify-start">
+                <p className="w-[12%] hidden md:flex items-center justify-start">
                   <Chip value={'Enterprise'} style={PLAN_STYLES.enterprise} />
                 </p>
-                <p className="w-[10%] flex items-center justify-center text-sm">
+                <p className="w-[10%] hidden md:flex items-center justify-center text-sm">
                   2500
                 </p>
-                <p className="w-[10%] flex items-center justify-start text-sm">
+                <p className="w-[10%] hidden md:flex items-center justify-start text-sm">
                   22/01/23
                 </p>
-                <p className="w-[10%] flex items-center justify-start  text-sm">
+                <p className="w-[10%] hidden md:flex items-center justify-start text-sm">
                   $300
                 </p>
-                <div className="w-[10%] flex items-center justify-between">
+                <div className="w-[15%] md:w-[10%] flex items-center justify-between">
                   <Chip value={'Pending'} style={STATUS.pending} />
-                  <div>
+                  <div className="hidden md:block">
                     <SlOptionsVertical
                       onClick={() => handleOpenOption(idx)}
                       className="cursor-pointer"
