@@ -23,7 +23,7 @@ const SignUp = () => {
 
   return (
     <div className="w-full h-screen  flex items-center justify-center bg-[#EAEAEA]">
-      <div className="w-[32vw] min-h-[85vh] flex flex-col bg-white rounded-lg py-4">
+      <div className="w-[32vw] min-h-[40vh] flex flex-col bg-white rounded-lg py-4">
         <header className="w-full flex  justify-center pb-4">
           <h1 className="font-semibold text-2xl">Create New Account</h1>
         </header>

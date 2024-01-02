@@ -20,7 +20,7 @@ const Signin = () => {
   };
   return (
     <div className="w-full h-screen  py-8 flex items-center justify-center bg-[#EAEAEA]">
-      <div className="w-[32vw] min-h-[85vh] flex flex-col bg-white rounded-lg py-4">
+      <div className="w-[32vw] min-h-[40vh] flex flex-col bg-white rounded-lg py-4">
         <header className="w-full flex  justify-center pb-4">
           <h1 className="font-semibold text-2xl">Welcome,Login</h1>
         </header>
@@ -56,12 +56,20 @@ const Signin = () => {
               <p> OR</p>
               <div className="w-full bg-black h-[1px] mx-1" />
             </div>
-            <Button className="!bg-transparent shadow-md text-black mb-2">
-              <div className="flex items-center justify-center gap-2">
-                <FcGoogle />
-                Sign in with Google
-              </div>
-            </Button>
+            <div className="flex items-center gap-3">
+              <Button className="!bg-transparent shadow-md text-black !text-sm mb-2">
+                <div className="flex items-center justify-center gap-2">
+                  <FcGoogle />
+                  Sign in with Github
+                </div>
+              </Button>
+              <Button className="!bg-transparent shadow-md text-black !text-sm mb-2">
+                <div className="flex items-center justify-center gap-2">
+                  <FcGoogle />
+                  Sign in with Google
+                </div>
+              </Button>
+            </div>
 
             <div className="text-center">
               don't have an account ?{' '}

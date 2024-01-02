@@ -7,13 +7,14 @@ import { MdPhoneInTalk } from 'react-icons/md';
 import { RiLogoutBoxFill } from 'react-icons/ri';
 import { BiAtom, BiChevronsLeft, BiChevronsRight } from 'react-icons/bi';
 import { useRouter } from 'next/router';
-import { sideBarContext } from '@/context/sidebarContext';
+
 import Image from 'next/image';
 import {
   TbSquareRoundedChevronsRightFilled,
   TbSquareRoundedChevronsLeftFilled,
 } from 'react-icons/tb';
 import ToggleTheme from '@/components/Shared/ToggleTheme';
+import useSideBarState from '@/store/siderbar';
 const links = [
   { id: 1, name: 'profile', links: '/dashboard', icon: <FaUserAlt /> },
   {
@@ -44,7 +45,7 @@ interface Link {
   icon: JSX.Element;
 }
 const SideBar = () => {
-  const { isOpen, toggleOpen } = useContext(sideBarContext);
+  const { isOpen, toggleOpen } = useSideBarState();
   const router = useRouter();
   const currentPath = router.pathname;
   return (
