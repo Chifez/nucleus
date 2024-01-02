@@ -17,31 +17,24 @@ const UserInput = (props: {
     props;
   return (
     <div className="relative w-full ">
-      <div className="px-2 flex items-center justify-between border border-secondary rounded-md">
+      <div className="p-3 flex items-center justify-between rounded-lg border border-[#551FFF]">
         <input
           type={!visible ? type : 'text'}
           id={label}
           name={name}
           value={value}
           placeholder={placeholder}
-          className={`${className} outline-none peer placeholder-transparent placeholder:line-clamp-1`}
+          className={`${className} flex-1 outline-none mr-1`}
           onChange={inputChange}
         />
+
         {type === 'password' && (
-          <span onClick={toggle}>
-            {visible ? (
-              <MdOutlineVisibilityOff className="fill-white" />
-            ) : (
-              <MdOutlineVisibility className="fill-white" />
-            )}
+          <span onClick={toggle} className="mr-1">
+            {visible ? <MdOutlineVisibilityOff /> : <MdOutlineVisibility />}
           </span>
         )}
         {label && (
-          <label
-            htmlFor={label}
-            id={label}
-            className="absolute capitalize text-xs left-3 md:text-sm -top-3 bg-primary mt-[4px] px-[1px]  peer-placeholder-shown:text-capitalize peer-placeholder-shown:text-sm peer-placeholder-shown:top-[6px] peer-placeholder-shown:bg-transparent peer-placeholder-shown:text-[lightgrey] opacity-80 transition-all"
-          >
+          <label htmlFor={label} id={label} className="w-fit">
             {label}
           </label>
         )}
