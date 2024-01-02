@@ -1,4 +1,4 @@
-import Calendar from '@/components/Calendar';
+import Calendar from '@/components/Shared/Calendar';
 
 const BillCalendar = () => {
   return (

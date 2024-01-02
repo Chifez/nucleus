@@ -1,8 +1,8 @@
-import Modal from '@/components/Modal';
+import Modal from '@/components/Shared/Modal';
 import React, { useState } from 'react';
 import { CgOptions } from 'react-icons/cg';
 import PLchart from './PLchart';
-import DropDown from '@/components/DropDown';
+import DropDown from '@/components/Shared/DropDown';
 
 const Profit = () => {
   const [isOptionOpen, setIsOptionOpen] = useState(false);

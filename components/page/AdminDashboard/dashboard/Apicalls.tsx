@@ -1,6 +1,6 @@
-import DropDown from '@/components/DropDown';
-import Modal from '@/components/Modal';
-import Chart from '@/components/page/dashboard/Apichart';
+import DropDown from '@/components/Shared/DropDown';
+import Modal from '@/components/Shared/Modal';
+import Chart from '@/components/page/AdminDashboard/dashboard/Apichart';
 import { useState } from 'react';
 import { CgOptions } from 'react-icons/cg';
 const Apicalls = () => {

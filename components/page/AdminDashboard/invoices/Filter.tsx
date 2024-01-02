@@ -1,5 +1,5 @@
-import Calendar from '@/components/Calendar';
-import Modal from '@/components/Modal';
+import Calendar from '@/components/Shared/Calendar';
+import Modal from '@/components/Shared/Modal';
 import useCalendar from '@/hooks/useCalendar';
 import { format, parse, startOfToday } from 'date-fns';
 import React, { useState } from 'react';

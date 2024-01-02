@@ -1,8 +1,7 @@
 import React from 'react';
-import Home from '@/components/page/dashboard';
 
-const index = () => {
-  return <Home />;
+const LandingPage = () => {
+  return <div>LandingPage</div>;
 };
 
-export default index;
+export default LandingPage;

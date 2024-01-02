@@ -1,4 +1,4 @@
-import Chip from '@/components/Chip';
+import Chip from '@/components/Shared/Chip';
 
 interface BillType {
   'Recent Bills': string;

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import BillsCard from './BillCard';
-import Layout from '@/components/Layout';
+import Layout from '@/components/Shared/DashboardLayout';
 import BillSummary from './BillSummary';
 import BillGrowth from './BillGrowth';
 import BillCalendar from './BillCalendar';

@@ -8,18 +8,33 @@ import { RiLogoutBoxFill } from 'react-icons/ri';
 import { BiAtom, BiChevronsLeft, BiChevronsRight } from 'react-icons/bi';
 import { useRouter } from 'next/router';
 import { sideBarContext } from '@/context/sidebarContext';
+import Image from 'next/image';
 import {
   TbSquareRoundedChevronsRightFilled,
   TbSquareRoundedChevronsLeftFilled,
 } from 'react-icons/tb';
-import ToggleTheme from '@/components/ToggleTheme';
+import ToggleTheme from '@/components/Shared/ToggleTheme';
 const links = [
-  { id: 1, name: 'profile', links: '/', icon: <FaUserAlt /> },
-  { id: 2, name: 'Billings', links: '/billings', icon: <RiBillFill /> },
-  { id: 3, name: 'Invoices', links: '/invoices', icon: <FaFileInvoice /> },
-  { id: 4, name: 'Settings', links: '/settings', icon: <AiTwotoneSetting /> },
-  { id: 5, name: 'Help', links: '/help', icon: <MdPhoneInTalk /> },
-  { id: 6, name: 'LogOut', links: '/logout', icon: <RiLogoutBoxFill /> },
+  { id: 1, name: 'profile', links: '/dashboard', icon: <FaUserAlt /> },
+  {
+    id: 2,
+    name: 'Billings',
+    links: '/dashboard/billings',
+    icon: <RiBillFill />,
+  },
+  {
+    id: 3,
+    name: 'Invoices',
+    links: '/dashboard/invoices',
+    icon: <FaFileInvoice />,
+  },
+  {
+    id: 4,
+    name: 'Settings',
+    links: '/dashboard/settings',
+    icon: <AiTwotoneSetting />,
+  },
+  { id: 5, name: 'Help', links: '/dashboard/help', icon: <MdPhoneInTalk /> },
 ];
 
 interface Link {
@@ -40,9 +55,25 @@ const SideBar = () => {
           : 'translate-x-0 md:w-[15vw]'
       } `}
     >
-      <div className=" flex items-center text-lg py-3 text-[#551fff]">
+      <div className="flex items-center text-lg py-3 text-[#551fff]">
         <BiAtom className="w-6 h-6" />
         <h1 className={`${isOpen && 'md:hidden'}`}>Nucleus</h1>
+      </div>
+      <div
+        className={`"line-clamp-1 flex items-center justify-start gap-2 text-lg py-1 ${
+          isOpen ? 'px-1' : 'pl-1 pr-3'
+        }  border bg-[#EAEAEA] dark:bg-[#41395b] dark:text-black rounded-full`}
+      >
+        <div className="relative w-6 h-6 rounded-full overflow-hidden">
+          <Image src="/corporate.jpg" layout="fill" alt="user" />
+        </div>
+        <h1
+          className={`${
+            isOpen && 'md:hidden'
+          } text-sm font-semibold line-clamp-1`}
+        >
+          Nwosu Ifeanyi
+        </h1>
       </div>
       <div
         className="absolute -right-5 top-9 w-8 h-8 text-[#551FFF] dark:text-white hover:text-[#D0D2DA] cursor-pointer"
@@ -84,6 +115,29 @@ const SideBar = () => {
             </span>
           </Link>
         ))}
+        <button
+          className={`flex items-center justify-center ${
+            isOpen ? 'px-8 md:px-5' : 'px-8'
+          } py-4 gap-2 cursor-pointer hover:text-[#551FFF] text-[#D0D2DA] hover:bg-[#F3F0FF] rounded-3xl`}
+          title={isOpen ? 'LogOut' : ''}
+        >
+          <span
+            className={`flex justify-center gap-2  
+             ${isOpen ? 'w-20 md:w-fit items-stretch' : 'w-20 items-stretch'}
+            `}
+          >
+            <div>
+              <RiLogoutBoxFill />
+            </div>
+            <h1
+              className={`leading-none w-full text-sm capitalize ${
+                isOpen && 'md:hidden'
+              } `}
+            >
+              LogOut
+            </h1>
+          </span>
+        </button>
       </div>
       <ToggleTheme />
     </div>

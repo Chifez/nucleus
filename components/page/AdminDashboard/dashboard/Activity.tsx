@@ -1,5 +1,5 @@
-import DropDown from '@/components/DropDown';
-import Modal from '@/components/Modal';
+import DropDown from '@/components/Shared/DropDown';
+import Modal from '@/components/Shared/Modal';
 import React, { useState } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
 import { SlOptionsVertical } from 'react-icons/sl';

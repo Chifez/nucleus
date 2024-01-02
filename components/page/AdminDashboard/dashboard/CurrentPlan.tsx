@@ -5,9 +5,9 @@ import { CgOptions } from 'react-icons/cg';
 import { FaUserAlt, FaUserFriends, FaUsers } from 'react-icons/fa';
 import { MdNavigateNext } from 'react-icons/md';
 import CurrentPlanCard from './CurrentPlanCard';
-import Carousel from '@/components/Carousel';
-import Modal from '@/components/Modal';
-import DropDown from '@/components/DropDown';
+import Carousel from '@/components/Shared/Carousel';
+import Modal from '@/components/Shared/Modal';
+import DropDown from '@/components/Shared/DropDown';
 
 const CurrentPlan = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

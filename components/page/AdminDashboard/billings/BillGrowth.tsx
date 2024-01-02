@@ -1,8 +1,8 @@
 import { CgOptions } from 'react-icons/cg';
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts';
-import Modal from '@/components/Modal';
-import DropDown from '@/components/DropDown';
+import Modal from '@/components/Shared/Modal';
+import DropDown from '@/components/Shared/DropDown';
 import { useState } from 'react';
 
 const BillGrowth = () => {

@@ -1,5 +1,5 @@
-import Layout from '@/components/Layout';
-import SearchBar from '@/components/SearchBar';
+import Layout from '@/components/Shared/DashboardLayout';
+import SearchBar from '@/components/Shared/SearchBar';
 
 import Head from 'next/head';
 import Table from './Table';

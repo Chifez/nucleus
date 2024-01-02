@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout';
+import Layout from '@/components/Shared/DashboardLayout';
 import React from 'react';
 
 const Help = () => {

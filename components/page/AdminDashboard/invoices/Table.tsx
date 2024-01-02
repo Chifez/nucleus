@@ -1,6 +1,6 @@
-import Chip from '@/components/Chip';
-import DropDown from '@/components/DropDown';
-import Modal from '@/components/Modal';
+import Chip from '@/components/Shared/Chip';
+import DropDown from '@/components/Shared/DropDown';
+import Modal from '@/components/Shared/Modal';
 import { useState } from 'react';
 import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
 import { SlOptionsVertical } from 'react-icons/sl';

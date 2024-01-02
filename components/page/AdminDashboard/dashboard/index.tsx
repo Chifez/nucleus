@@ -1,14 +1,24 @@
 import Head from 'next/head';
 import { ReactNode, SetStateAction, useState } from 'react';
 import Link from 'next/link';
-import Layout from '@/components/Layout';
+import Layout from '@/components/Shared/DashboardLayout';
 import Activity from './Activity';
 import Overview from './Overview';
 import Plan from './Plan';
 import Apicalls from './Apicalls';
 import RightPanel from './RightPanel';
+import { MdAdd } from 'react-icons/md';
+import { MdOutlineAdd } from 'react-icons/md';
 
 export default function Home() {
+  const user = 'Ifeanyi Nwosu';
+  const getFirstName = (fullname: string) => {
+    if (fullname) {
+      const firstName = fullname.split(' ')[0];
+      return firstName;
+    }
+    return 'Stranger';
+  };
   return (
     <>
       <Head>
@@ -19,11 +29,18 @@ export default function Home() {
       </Head>
       <Layout>
         <div className="h-full md:h-screen lg:h-full">
-          <header>
-            <h1 className="text-3xl font-semibold dark:text-white">
-              DashBoard
-            </h1>
-            <p className="dark:text-white">welcome stranger </p>
+          <header className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-semibold dark:text-white">
+                DashBoard
+              </h1>
+              <p className="dark:text-white">Hello, {getFirstName(user)}</p>
+            </div>
+
+            <div className="h-fit w-fit p-2 border border-[#002E94] rounded-md bg-white text-[#551fff]  flex items-center cursor-pointer">
+              <MdOutlineAdd className="h-5 w-5" />
+              <p>Add New</p>
+            </div>
           </header>
           <div className="md:flex-1 md:grid md:grid-cols-3 gap-3 py-2 w-full h-full">
             <div className="col-span-2 flex flex-col gap-3 rounded-md w-full h-full">

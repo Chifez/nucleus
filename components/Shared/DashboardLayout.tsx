@@ -1,4 +1,4 @@
-import SideBar from '@/components/SideBar';
+import SideBar from '@/components/Shared/SideBar';
 
 interface Link {
   id: number;
