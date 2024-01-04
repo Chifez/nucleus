@@ -30,7 +30,7 @@ const SignUp = () => {
       email,
       password,
       options: {
-        emailRedirectTo: `${location.origin}/pages/auth/login`,
+        emailRedirectTo: `${location.origin}/auth/login`,
       },
     });
     router.refresh();

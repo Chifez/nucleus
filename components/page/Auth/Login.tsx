@@ -7,7 +7,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 
-const Signin = () => {
+const SignIn = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -25,12 +25,35 @@ const Signin = () => {
   const supabaseUrl = process.env.NEXT_PUBLIC_PROJECT_URL;
   const supabaseKey = process.env.NEXT_PUBLIC_ANON_KEY;
   const supabase = createClientComponentClient({ supabaseUrl, supabaseKey });
+
   const handleSignIn = async () => {
     await supabase.auth.signInWithPassword({
       email,
       password,
     });
     router.refresh();
+  };
+  const handleSignInWithGithub = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'github',
+      options: {
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'consent',
+        },
+      },
+    });
+  };
+  const handleSignInWithGoogle = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'consent',
+        },
+      },
+    });
   };
   return (
     <div className="w-full h-screen  py-8 flex items-center justify-center bg-[#EAEAEA]">
@@ -74,13 +97,19 @@ const Signin = () => {
               <div className="w-full bg-black h-[1px] mx-1" />
             </div>
             <div className="flex items-center gap-3">
-              <Button className="!bg-transparent shadow-md text-black !text-sm mb-2">
+              <Button
+                className="!bg-transparent shadow-md text-black !text-sm mb-2"
+                handleClick={handleSignInWithGithub}
+              >
                 <div className="flex items-center justify-center gap-2">
                   <FcGoogle />
                   Sign in with Github
                 </div>
               </Button>
-              <Button className="!bg-transparent shadow-md text-black !text-sm mb-2">
+              <Button
+                className="!bg-transparent shadow-md text-black !text-sm mb-2"
+                handleClick={handleSignInWithGoogle}
+              >
                 <div className="flex items-center justify-center gap-2">
                   <FcGoogle />
                   Sign in with Google
@@ -101,4 +130,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default SignIn;
