@@ -15,18 +15,14 @@ const Layout = (props: { children: JSX.Element }) => {
   const { user } = useUserState();
   const router = useRouter();
 
-  if (!user) {
-    redirect('/');
-  }
-
   useEffect(() => {
-    if (!user) {
+    if (user) {
       router.replace('/auth/login');
     }
   }, [user, router]);
   return (
     <>
-      {user ? (
+      {!user ? (
         <div className="flex md:h-screen w-screen overflow-hidden">
           <SideBar />
           <div className="flex-1 bg-[#EAEAEA] dark:bg-[#41395b] dark:text-black px-2 md:px-5 py-2 h-full overflow-y-scroll ">

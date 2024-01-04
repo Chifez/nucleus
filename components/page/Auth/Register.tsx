@@ -1,8 +1,10 @@
 import Button from '@/components/Shared/Button';
 import UserInput from '@/components/Shared/UserInput';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
 import React, { ChangeEvent, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
+import { useRouter } from 'next/navigation';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +14,7 @@ const SignUp = () => {
     confirmPassword: '',
   });
   const { fullname, email, password, confirmPassword } = formData;
-
+  const router = useRouter();
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
       ...prev,
@@ -20,7 +22,19 @@ const SignUp = () => {
         .value,
     }));
   };
-
+  const supabaseUrl = process.env.NEXT_PUBLIC_PROJECT_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_ANON_KEY;
+  const supabase = createClientComponentClient({ supabaseUrl, supabaseKey });
+  const handleSignUp = async () => {
+    await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: `${location.origin}/pages/auth/login`,
+      },
+    });
+    router.refresh();
+  };
   return (
     <div className="w-full h-screen  flex items-center justify-center bg-[#EAEAEA]">
       <div className="w-[32vw] min-h-[40vh] flex flex-col bg-white rounded-lg py-4">
@@ -33,7 +47,7 @@ const SignUp = () => {
               label="Fullname"
               placeholder="Your Fullname"
               value={fullname}
-              name="email"
+              name="fullname"
               inputChange={onInputChange}
               className="rounded-lg w-full"
             />
@@ -65,7 +79,10 @@ const SignUp = () => {
             />
           </div>
           <div>
-            <div className="flex items-center justify-center w-full py-2">
+            <div
+              className="flex items-center justify-center w-full py-2"
+              onClick={handleSignUp}
+            >
               <Button children="Create Account" />
             </div>
             <div className="text-center flex justify-center items-center my-1">

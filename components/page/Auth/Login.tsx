@@ -2,7 +2,10 @@ import Button from '@/components/Shared/Button';
 import UserInput from '@/components/Shared/UserInput';
 import Link from 'next/link';
 import React, { ChangeEvent, useState } from 'react';
+import { BiAtom } from 'react-icons/bi';
 import { FcGoogle } from 'react-icons/fc';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { useRouter } from 'next/navigation';
 
 const Signin = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +13,7 @@ const Signin = () => {
     password: '',
   });
   const { email, password } = formData;
+  const router = useRouter();
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
@@ -17,6 +21,16 @@ const Signin = () => {
       [(e.target as HTMLInputElement).name]: (e.target as HTMLInputElement)
         .value,
     }));
+  };
+  const supabaseUrl = process.env.NEXT_PUBLIC_PROJECT_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_ANON_KEY;
+  const supabase = createClientComponentClient({ supabaseUrl, supabaseKey });
+  const handleSignIn = async () => {
+    await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    router.refresh();
   };
   return (
     <div className="w-full h-screen  py-8 flex items-center justify-center bg-[#EAEAEA]">
@@ -48,7 +62,10 @@ const Signin = () => {
             forget password?
           </Link>
           <div className="my-2">
-            <div className="flex items-center justify-center w-full py-2">
+            <div
+              className="flex items-center justify-center w-full py-2"
+              onClick={handleSignIn}
+            >
               <Button children="Login" />
             </div>
             <div className="text-center flex justify-center items-center my-1">

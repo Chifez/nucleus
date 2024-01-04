@@ -68,11 +68,7 @@ const SideBar = () => {
         <div className="relative w-6 h-6 rounded-full overflow-hidden">
           <Image src="/corporate.jpg" layout="fill" alt="user" />
         </div>
-        <h1
-          className={`${
-            isOpen && 'md:hidden'
-          } text-sm font-semibold line-clamp-1`}
-        >
+        <h1 className={`${isOpen && 'md:hidden'} text-sm  line-clamp-1`}>
           Nwosu Ifeanyi
         </h1>
       </div>
