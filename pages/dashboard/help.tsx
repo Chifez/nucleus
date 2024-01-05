@@ -1,12 +1,8 @@
-import Layout from '@/components/Shared/DashboardLayout';
+import ContactSupport from '@/components/page/AdminDashboard/help';
 import React from 'react';
 
 const Help = () => {
-  return (
-    <Layout>
-      <div>Help</div>
-    </Layout>
-  );
+  return <ContactSupport />;
 };
 
 export default Help;

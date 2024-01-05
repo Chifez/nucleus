@@ -1,12 +1,8 @@
 import React from 'react';
-import Layout from '@/components/Shared/DashboardLayout';
+import Setting from '@/components/page/AdminDashboard/settings';
 
 const Settings = () => {
-  return (
-    <Layout>
-      <>settings</>
-    </Layout>
-  );
+  return <Setting />;
 };
 
 export default Settings;

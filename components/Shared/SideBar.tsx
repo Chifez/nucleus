@@ -15,6 +15,7 @@ import {
 } from 'react-icons/tb';
 import ToggleTheme from '@/components/Shared/ToggleTheme';
 import useSideBarState from '@/store/siderbar';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 const links = [
   { id: 1, name: 'profile', links: '/dashboard', icon: <FaUserAlt /> },
   {
@@ -48,6 +49,14 @@ const SideBar = () => {
   const { isOpen, toggleOpen } = useSideBarState();
   const router = useRouter();
   const currentPath = router.pathname;
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_PROJECT_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_ANON_KEY;
+  const supabase = createClientComponentClient({ supabaseUrl, supabaseKey });
+
+  const logOut = async () => {
+    await supabase.auth.signOut();
+  };
   return (
     <div
       className={`fixed bg-white w-[50vw] h-[100dvh]  z-50 md:h-full md:z-0 md:relative px-2 py-5 rounded-l-xl flex flex-col items-center gap-8 dark:bg-[#0c0c0d] transition-all duration-600 ${
@@ -68,8 +77,8 @@ const SideBar = () => {
         <div className="relative w-6 h-6 rounded-full overflow-hidden">
           <Image src="/corporate.jpg" layout="fill" alt="user" />
         </div>
-        <h1 className={`${isOpen && 'md:hidden'} text-sm  line-clamp-1`}>
-          Nwosu Ifeanyi
+        <h1 className={`${isOpen && 'md:hidden'}  text-sm  line-clamp-1`}>
+          Nwosu Emmanuel
         </h1>
       </div>
       <div
@@ -117,6 +126,7 @@ const SideBar = () => {
             isOpen ? 'px-8 md:px-5' : 'px-8'
           } py-4 gap-2 cursor-pointer hover:text-[#551FFF] text-[#D0D2DA] hover:bg-[#F3F0FF] rounded-3xl`}
           title={isOpen ? 'LogOut' : ''}
+          onClick={logOut}
         >
           <span
             className={`flex justify-center gap-2  

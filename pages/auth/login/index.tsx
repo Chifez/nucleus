@@ -1,8 +1,7 @@
-import React from 'react';
-import SignIn from '@/components/page/Auth/Login';
+import SignIn from '@/components/page/Authentication/Login';
 
-const Login = () => {
+const index = () => {
   return <SignIn />;
 };
 
-export default Login;
+export default index;
