@@ -1,9 +1,15 @@
+import Modal from '@/components/Shared/Modal';
+import useModalParams from '@/hooks/useModalParams';
 import React from 'react';
 import { AiOutlinePieChart, AiTwotonePieChart } from 'react-icons/ai';
 import { BiTransfer } from 'react-icons/bi';
 import { FaFileInvoice, FaUserAlt } from 'react-icons/fa';
 
 const Overview = () => {
+  const { searchParams, onCloseModal, onOpenModal } = useModalParams(
+    'overview',
+    'true'
+  );
   const lists = [
     {
       icon: <FaFileInvoice className="w-5 h-5 text-[#fa954e]" />,
@@ -31,28 +37,40 @@ const Overview = () => {
     },
   ];
   return (
-    <div className="p-2 md:p-5 bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 rounded-md w-full lg:h-[20vh] grid grid-cols-2 lg:flex items-center justify-around gap-1">
-      {lists.map((item, idx) => (
-        <span
-          key={idx}
-          className={`${
-            idx != 3 ? 'lg:border-r md:pl-1' : 'md:pl-1'
-          } border-[#ECECEE] w-full py-2 px-1 flex items-start justify-start gap-2`}
-        >
-          <div
-            className={`w-10 h-10 md:w-14 md:h-14  flex items-center justify-center border border-transparent rounded-xl ${item.bg} text-[${item.bg}]`}
+    <>
+      <div className="p-2 md:p-5 bg-white dark:bg-[#0c0c0d] dark:text-white transition-all duration-600 rounded-md w-full lg:h-[20vh] grid grid-cols-2 lg:flex items-center justify-around gap-1">
+        {lists.map((item, idx) => (
+          <span
+            key={idx}
+            className={`${
+              idx != 3 ? 'lg:border-r md:pl-1' : 'md:pl-1'
+            } border-[#ECECEE] w-full py-2 px-1 flex items-start justify-start gap-2`}
+            onClick={onOpenModal}
           >
-            {item.icon}
-          </div>
-          <div>
-            <p className="text-sm md:text-base font-semibold capitalize text-[#92959E]">
-              {item.title}
-            </p>
-            <p className="text-sm md:text-base font-medium">{item.value}</p>
-          </div>
-        </span>
-      ))}
-    </div>
+            <div
+              className={`w-10 h-10 md:w-14 md:h-14  flex items-center justify-center border border-transparent rounded-xl ${item.bg} text-[${item.bg}]`}
+            >
+              {item.icon}
+            </div>
+            <div>
+              <p className="text-sm md:text-base font-semibold capitalize text-[#92959E]">
+                {item.title}
+              </p>
+              <p className="text-sm md:text-base font-medium">{item.value}</p>
+            </div>
+          </span>
+        ))}
+      </div>
+      <Modal
+        onClose={onCloseModal}
+        openModal={Boolean(searchParams.get('overview')?.toString())}
+        extrastyle="fixed flex items-center justify-center left-0 top-0 w-screen h-screen bg-black/50"
+      >
+        <div className="bg-white w-[60vw] h-[70vh] rounded-lg p-4 z-50">
+          <p>content goes here</p>
+        </div>
+      </Modal>
+    </>
   );
 };
 

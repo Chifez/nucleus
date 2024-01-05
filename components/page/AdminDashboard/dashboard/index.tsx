@@ -9,8 +9,16 @@ import Apicalls from './Apicalls';
 import RightPanel from './RightPanel';
 import { MdAdd } from 'react-icons/md';
 import { MdOutlineAdd } from 'react-icons/md';
+import Modal from '@/components/Shared/Modal';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import useModalParams from '@/hooks/useModalParams';
 
 export default function Home() {
+  const { searchParams, onCloseModal, onOpenModal } = useModalParams(
+    'add_new',
+    'true'
+  );
+
   const user = 'Ifeanyi Nwosu';
   const getFirstName = (fullname: string) => {
     if (fullname) {
@@ -28,7 +36,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <div className="h-full md:h-screen lg:h-full">
+        <div className="relative h-full md:h-screen lg:h-full">
           <header className="flex justify-between items-center">
             <div>
               <h1 className="text-3xl font-semibold dark:text-white">
@@ -37,7 +45,10 @@ export default function Home() {
               <p className="dark:text-white">Hello, {getFirstName(user)}</p>
             </div>
 
-            <div className="h-fit w-fit p-2 border border-[#002E94] rounded-md bg-white text-[#551fff]  flex items-center cursor-pointer">
+            <div
+              onClick={onOpenModal}
+              className="h-fit w-fit p-2 border border-[#002E94] rounded-md bg-white text-[#551fff]  flex items-center cursor-pointer"
+            >
               <MdOutlineAdd className="h-5 w-5" />
               <p>Add New</p>
             </div>
@@ -52,6 +63,15 @@ export default function Home() {
               <RightPanel />
             </div>
           </div>
+          <Modal
+            onClose={onCloseModal}
+            openModal={Boolean(searchParams.get('add_new')?.toString())}
+            extrastyle="fixed flex items-center justify-center left-0 top-0 w-screen h-screen bg-black/50"
+          >
+            <div className="bg-white w-[60vw] h-[70vh] rounded-lg p-4">
+              <p>content goes here</p>
+            </div>
+          </Modal>
         </div>
       </Layout>
     </>
