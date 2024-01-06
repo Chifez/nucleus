@@ -12,23 +12,24 @@ const Overview = () => {
     'true'
   );
   const modalContent = searchParams.get('overview');
+
   const lists = [
     {
       icon: <FaFileInvoice className="w-5 h-5 text-[#fa954e]" />,
       title: 'projects',
-      value: '3',
+      value: 11,
       bg: 'bg-[#FFF2E9]',
     },
     {
       icon: <BiTransfer className="w-5 h-5 text-[#734cff]" />,
       title: 'request',
-      value: '3456',
+      value: 3456,
       bg: 'bg-[#EDE8FF]',
     },
     {
       icon: <FaUserAlt className="w-5 h-5 text-[#4ac7f8]" />,
       title: 'users',
-      value: '3',
+      value: 4,
       bg: 'bg-[#EAF9FF]',
     },
     {
@@ -36,6 +37,45 @@ const Overview = () => {
       title: 'storage',
       value: '128/500GB',
       bg: 'bg-[#FFF2E9]',
+    },
+  ];
+
+  const data = [
+    {
+      title: 'project',
+      info: [
+        { user: 'James Anderson', value: '04' },
+        { user: 'Vector susan', value: '01' },
+        { user: 'Jude Berg', value: '03' },
+        { user: 'Daniel telly', value: '02' },
+      ],
+    },
+    {
+      title: 'users',
+      info: [
+        { user: 'James Anderson', value: 'Basic' },
+        { user: 'Vector susan', value: 'Teams' },
+        { user: 'Jude Berg', value: 'Enterprise' },
+        { user: 'Daniel telly', value: 'Basic' },
+      ],
+    },
+    {
+      title: 'storage',
+      info: [
+        { user: 'James Anderson', value: '67GB' },
+        { user: 'Vector susan', value: '75GB' },
+        { user: 'Jude Berg', value: '45GB' },
+        { user: 'Daniel telly', value: '35GB' },
+      ],
+    },
+    {
+      title: 'request',
+      info: [
+        { user: 'James Anderson', value: 100 },
+        { user: 'Vector susan', value: 400 },
+        { user: 'Jude Berg', value: 700 },
+        { user: 'Daniel telly', value: 1000 },
+      ],
     },
   ];
   return (
@@ -69,10 +109,18 @@ const Overview = () => {
         extrastyle="fixed flex items-center justify-center left-0 top-0 w-screen h-screen bg-black/50 z-50"
       >
         <div className="bg-white w-[40vw] h-[40vh] rounded-lg p-4">
-          {modalContent === 'projects' && <OverviewCard />}
-          {modalContent === 'request' && <OverviewCard />}
-          {modalContent === 'users' && <OverviewCard />}
-          {modalContent === 'storage' && <OverviewCard />}
+          {modalContent === 'projects' && (
+            <OverviewCard title="Projects" data={data[0].info} />
+          )}
+          {modalContent === 'users' && (
+            <OverviewCard title="Users" data={data[1].info} />
+          )}
+          {modalContent === 'storage' && (
+            <OverviewCard title="Storage" data={data[2].info} />
+          )}
+          {modalContent === 'request' && (
+            <OverviewCard title="Request" data={data[3].info} />
+          )}
         </div>
       </Modal>
     </>
