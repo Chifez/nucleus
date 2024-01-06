@@ -5,16 +5,16 @@ const useModalParams = (query: string, value: string) => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  function onOpenModal() {
+  function onOpenModal(queryValue?: string) {
     const nextSearchParams = new URLSearchParams(searchParams);
-    nextSearchParams.set(query, value);
+    nextSearchParams.set(query, queryValue ? queryValue : value);
     replace(`${pathname}?${nextSearchParams.toString()}`);
   }
 
   function onCloseModal() {
     const nextSearchParams = new URLSearchParams(searchParams);
     nextSearchParams.delete(query);
-    replace(`${pathname}?${nextSearchParams.toString()}`);
+    replace(`${pathname}`);
   }
   return { searchParams, onOpenModal, onCloseModal };
 };

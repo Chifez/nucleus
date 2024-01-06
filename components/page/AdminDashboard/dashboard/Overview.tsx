@@ -4,12 +4,14 @@ import React from 'react';
 import { AiOutlinePieChart, AiTwotonePieChart } from 'react-icons/ai';
 import { BiTransfer } from 'react-icons/bi';
 import { FaFileInvoice, FaUserAlt } from 'react-icons/fa';
+import OverviewCard from './OverviewCard';
 
 const Overview = () => {
   const { searchParams, onCloseModal, onOpenModal } = useModalParams(
     'overview',
     'true'
   );
+  const modalContent = searchParams.get('overview');
   const lists = [
     {
       icon: <FaFileInvoice className="w-5 h-5 text-[#fa954e]" />,
@@ -45,7 +47,7 @@ const Overview = () => {
             className={`${
               idx != 3 ? 'lg:border-r md:pl-1' : 'md:pl-1'
             } border-[#ECECEE] w-full py-2 px-1 flex items-start justify-start gap-2`}
-            onClick={onOpenModal}
+            onClick={() => onOpenModal(item.title)}
           >
             <div
               className={`w-10 h-10 md:w-14 md:h-14  flex items-center justify-center border border-transparent rounded-xl ${item.bg} text-[${item.bg}]`}
@@ -63,11 +65,14 @@ const Overview = () => {
       </div>
       <Modal
         onClose={onCloseModal}
-        openModal={Boolean(searchParams.get('overview')?.toString())}
-        extrastyle="fixed flex items-center justify-center left-0 top-0 w-screen h-screen bg-black/50"
+        openModal={Boolean(modalContent?.toString())}
+        extrastyle="fixed flex items-center justify-center left-0 top-0 w-screen h-screen bg-black/50 z-50"
       >
-        <div className="bg-white w-[60vw] h-[70vh] rounded-lg p-4 z-50">
-          <p>content goes here</p>
+        <div className="bg-white w-[40vw] h-[40vh] rounded-lg p-4">
+          {modalContent === 'projects' && <OverviewCard />}
+          {modalContent === 'request' && <OverviewCard />}
+          {modalContent === 'users' && <OverviewCard />}
+          {modalContent === 'storage' && <OverviewCard />}
         </div>
       </Modal>
     </>

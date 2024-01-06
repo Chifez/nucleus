@@ -19,7 +19,7 @@ export default function Home() {
     'true'
   );
 
-  const user = 'Ifeanyi Nwosu';
+  const user = 'Nwosu Emmanuel';
   const getFirstName = (fullname: string) => {
     if (fullname) {
       const firstName = fullname.split(' ')[0];
@@ -46,7 +46,7 @@ export default function Home() {
             </div>
 
             <div
-              onClick={onOpenModal}
+              onClick={() => onOpenModal()}
               className="h-fit w-fit p-2 border border-[#002E94] rounded-md bg-white text-[#551fff]  flex items-center cursor-pointer"
             >
               <MdOutlineAdd className="h-5 w-5" />
@@ -68,7 +68,7 @@ export default function Home() {
             openModal={Boolean(searchParams.get('add_new')?.toString())}
             extrastyle="fixed flex items-center justify-center left-0 top-0 w-screen h-screen bg-black/50"
           >
-            <div className="bg-white w-[60vw] h-[70vh] rounded-lg p-4">
+            <div className="bg-white w-[40vw] h-[40vh] rounded-lg p-4">
               <p>content goes here</p>
             </div>
           </Modal>
