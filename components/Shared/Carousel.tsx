@@ -1,5 +1,3 @@
-//I need to figure out why this doesn't work
-
 'use client';
 
 import { ReactNode, useEffect, useState } from 'react';
