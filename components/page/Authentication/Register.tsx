@@ -24,9 +24,8 @@ const SignUp = () => {
         .value,
     }));
   };
-  // const supabaseUrl = process.env.NEXT_PUBLIC_PROJECT_URL;
-  // const supabaseKey = process.env.NEXT_PUBLIC_ANON_KEY;
-  // const supabase = createClientComponentClient({ supabaseUrl, supabaseKey });
+
+  // const supabase = createClientComponentClient();
 
   // const handleSignUp = async () => {
   //   await supabase.auth.signUp({

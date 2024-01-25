@@ -29,9 +29,8 @@ const SignIn = () => {
         .value,
     }));
   };
-  const supabaseUrl = process.env.NEXT_PUBLIC_PROJECT_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_ANON_KEY;
-  const supabase = createClientComponentClient({ supabaseUrl, supabaseKey });
+
+  const supabase = createClientComponentClient();
 
   return (
     <div className="w-full h-screen py-8 flex items-center justify-center bg-[#EAEAEA]">

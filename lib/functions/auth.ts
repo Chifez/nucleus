@@ -1,9 +1,7 @@
 import useUserState from '@/store/user';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_PROJECT_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_ANON_KEY;
-const supabase = createClientComponentClient({ supabaseUrl, supabaseKey });
+const supabase = createClientComponentClient();
 // const { user, setUser } = useUserState();
 
 export const handleSignIn = async (
