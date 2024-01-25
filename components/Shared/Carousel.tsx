@@ -11,7 +11,6 @@ const Carousel = ({ children, currentIndex }: Props) => {
 
   useEffect(() => {
     setTranslateSize(`-translate-x-[${currentIndex * 100}%]`);
-    console.log(translateSize);
   }, [currentIndex]);
 
   return (
@@ -23,8 +22,6 @@ const Carousel = ({ children, currentIndex }: Props) => {
   );
 };
 export default Carousel;
-
-// 'use client';
 
 // import { ReactNode } from 'react';
 

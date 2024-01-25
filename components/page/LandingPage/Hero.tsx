@@ -27,7 +27,7 @@ const Hero = () => {
               <p className="text-[#87888b] font-medium text-sm w-[90%] ">
                 Equipped with a seamless integration and security protocol,
                 nucleus is the tool you need to monitor and quantify how your
-                API's are being used all in one place.
+                API&rsquo;s are being used all in one place.
               </p>
             </span>
           </div>
