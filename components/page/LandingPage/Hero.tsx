@@ -7,7 +7,7 @@ import Marquee from 'react-fast-marquee';
 const Hero = () => {
   return (
     <section>
-      <div className="h-full w-full flex items-center justify-center gap-2 p-10">
+      <div className="h-full w-full flex items-center justify-center gap-2 px-10 py-20">
         <div className="w-full h-full flex flex-col items-start justify-between gap-4">
           <div>
             <p className="text-[#92959E] font-bold text-sm">
@@ -16,7 +16,7 @@ const Hero = () => {
             </p>
           </div>
           <div>
-            <div className="flex flex-col gap-4 items-start text-start text-6xl font-medium tracking-wide mb-4">
+            <div className="flex flex-col gap-4 items-start text-start text-6xl font-semibold tracking-wide mb-4">
               <h1>The All In One Tool</h1>
               <h1> for Managing Your</h1>
               <h1>
@@ -33,17 +33,17 @@ const Hero = () => {
           </div>
 
           <div className="flex gap-2">
-            <Button className="relative w-fit text-base font-medium px-4 shine">
+            <Button className="relative w-fit text-base font-medium px-8 shine">
               Get started 🚀
             </Button>
-            <Button className="relative w-fit text-base font-medium px-4 bg-transparent border border-[#551FFF] hover:text-white text-[#551FFF] overflow-hidden swipe">
+            <Button className="relative w-fit text-base font-medium px-8 bg-transparent border border-[#551FFF] hover:text-white text-[#551FFF] overflow-hidden swipe">
               Get a demo 📖
             </Button>
           </div>
         </div>
 
         <div className="w-full">
-          <div className="relative  w-[45vw] h-[60vh]  rounded-md bg-[#551FFF]">
+          <div className="relative  w-[45vw] h-[60vh]  rounded-md bg-gradient-to-r from-blue-500 via-sky-800 to-indigo-700">
             <Image
               src="/frame_generic_light.png"
               alt="frame"

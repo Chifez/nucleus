@@ -12,7 +12,7 @@
   }
 }
 .shine {
-  @apply before:absolute before:left-0 before:top-0 before:h-full before:w-6 before:-translate-x-6 before:rotate-6 before:bg-white before:opacity-10 before:duration-700  hover:before:translate-x-40;
+  @apply before:absolute before:left-0 before:top-0 before:h-full before:w-6 before:-translate-x-4 before:rotate-6 before:bg-white before:opacity-10 before:duration-700  hover:before:translate-x-40;
 }
 
 .swipe {

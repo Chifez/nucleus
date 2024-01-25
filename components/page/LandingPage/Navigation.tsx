@@ -1,4 +1,5 @@
 import Button from '@/components/Shared/Button';
+import useUserState from '@/store/user';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
@@ -7,6 +8,7 @@ import { FaGithub } from 'react-icons/fa';
 
 const Navigation = () => {
   const currentRoute = usePathname();
+  const { user, setUser } = useUserState();
 
   const links = [
     { title: 'About', link: '#about' },
@@ -39,7 +41,7 @@ const Navigation = () => {
         <Link href="https://github.com/Chifez">
           <FaGithub className=" w-7 h-7" />
         </Link>
-        <Button className="w-fit text-base font-medium px-4">
+        <Button className="w-fit text-base font-medium px-4" >
           Dashboard →
         </Button>
       </div>

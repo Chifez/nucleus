@@ -90,7 +90,7 @@ const SignUp = () => {
               className="flex items-center justify-center w-full py-2"
               onClick={() => handleSignUp(email, password, router)}
             >
-              <Button children="Create Account" />
+              <Button>Create Account</Button>
             </div>
             <div className="text-center flex justify-center items-center my-1">
               <div className="w-full bg-black h-[1px] mx-1" />

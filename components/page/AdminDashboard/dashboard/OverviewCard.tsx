@@ -15,7 +15,7 @@ const OverviewCard = ({
     <div className="p-3 w-full h-full">
       <h1 className="text-lg font-semibold">{title}</h1>
       <div className="flex flex-col gap-2  py-2">
-        {data?.map((item, idx) => (
+        {/* {data?.map((item, idx) => (
           <li
             className="w-[50%] flex items-center justify-between list-none"
             key={idx}
@@ -31,7 +31,8 @@ const OverviewCard = ({
               style="bg-green-400 rounded-full text-xs font-semibold"
             />
           </li>
-        ))}
+        ))} */}
+        <p>content goes here</p>
       </div>
     </div>
   );
