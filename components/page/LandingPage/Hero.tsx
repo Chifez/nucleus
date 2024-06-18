@@ -1,6 +1,7 @@
 'use client';
 import Button from '@/components/Shared/Button';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 
@@ -10,6 +11,9 @@ const Hero = () => {
     '/png-transparent-amazon-aws-logo.png',
     '/png-transparent-amazon-aws-logo.png',
   ];
+
+  const route = useRouter();
+
   return (
     <section>
       <div className="h-full w-full flex items-center justify-center gap-2 px-4 lg:px-20 py-20 lg:py-10">
@@ -38,7 +42,10 @@ const Hero = () => {
           </div>
 
           <div className="flex gap-2">
-            <Button className="relative w-fit text-base font-medium px-8 shine">
+            <Button
+              className="relative w-fit text-base font-medium px-8 shine"
+              handleClick={() => route.push('/auth/login')}
+            >
               Get started 🚀
             </Button>
             <Button className="relative w-fit text-base font-medium px-8 bg-transparent border border-[#551FFF] hover:text-white text-[#551FFF] overflow-hidden swipe">
