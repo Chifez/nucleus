@@ -17,7 +17,7 @@ const UserInput = (props: {
     props;
   return (
     <div className="relative w-full ">
-      <div className="p-3 flex items-center justify-between rounded-lg border border-[#551FFF]">
+      <div className="px-3 py-2 flex items-center justify-between rounded-lg border border-[#551FFF]">
         <input
           type={!visible ? type : 'text'}
           id={label}

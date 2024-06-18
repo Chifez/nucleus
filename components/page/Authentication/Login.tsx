@@ -34,7 +34,7 @@ const SignIn = () => {
 
   return (
     <div className="w-full h-screen py-8 flex items-center justify-center bg-[#EAEAEA]">
-      <div className="w-[32vw] min-h-[40vh] flex flex-col bg-white rounded-lg py-2 ">
+      <div className="w-fit md:w-[30vw] min-h-[40vh] flex flex-col bg-white rounded-lg px-2 py-4 ">
         <div className="flex items-center justify-center text-lg py-3 text-[#551fff]">
           <BiAtom className="w-6 h-6" />
           <h1 className="text-lg font-semibold">Nucleus</h1>
@@ -62,7 +62,7 @@ const SignIn = () => {
               className=" rounded-lg w-full"
             />
           </div>
-          <Link href="#" className="underline">
+          <Link href="#" className=" font-medium">
             forget password?
           </Link>
           <div className="my-2">
@@ -74,15 +74,15 @@ const SignIn = () => {
             </div>
             <div className="text-center flex justify-center items-center my-1">
               <div className="w-full bg-black h-[1px] mx-1" />
-              <p> OR</p>
+              <p className="font-semibold"> OR</p>
               <div className="w-full bg-black h-[1px] mx-1" />
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <Button
                 className="!bg-transparent shadow-md text-black !text-sm mb-2"
                 handleClick={handleSignInWithGithub}
               >
-                <div className="flex items-center justify-center gap-2">
+                <div className="w-fit flex-nowrap flex items-center justify-center gap-2">
                   <FcGoogle />
                   Sign in with Github
                 </div>
@@ -91,15 +91,15 @@ const SignIn = () => {
                 className="!bg-transparent shadow-md text-black !text-sm mb-2"
                 handleClick={() => handleSignInWithGoogle(setUser)}
               >
-                <div className="flex items-center justify-center gap-2">
+                <div className="w-fit flex flex-nowrap items-center justify-center gap-2">
                   <FcGoogle />
                   Sign in with Google
                 </div>
               </Button>
             </div>
 
-            <div className="text-center">
-              don&apos;t have an account ?{' '}
+            <div className="text-center py-4">
+              don&apos;t have an account?{' '}
               <Link href="/auth/register" className="underline">
                 sign up
               </Link>

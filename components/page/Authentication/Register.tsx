@@ -39,7 +39,7 @@ const SignUp = () => {
   // };
   return (
     <div className="w-full h-screen  flex items-center justify-center bg-[#EAEAEA]">
-      <div className="w-[32vw] min-h-[40vh] flex flex-col bg-white rounded-lg py-4">
+      <div className="w-fit md:w-[32vw] min-h-[40vh] flex flex-col bg-white rounded-lg px-2 py-4">
         <div className="flex items-center justify-center text-lg py-3 text-[#551fff]">
           <BiAtom className="w-6 h-6" />
           <h1 className="text-lg font-semibold">Nucleus</h1>
@@ -91,12 +91,12 @@ const SignUp = () => {
             >
               <Button>Create Account</Button>
             </div>
-            <div className="text-center flex justify-center items-center my-1">
+            {/* <div className="text-center flex justify-center items-center my-1">
               <div className="w-full bg-black h-[1px] mx-1" />
-              <p> OR</p>
+              <p className="font-semibold"> OR</p>
               <div className="w-full bg-black h-[1px] mx-1" />
-            </div>
-            <div className="flex items-center gap-3">
+            </div> */}
+            {/* <div className="flex items-center gap-3">
               <Button className="!bg-transparent shadow-md text-black !text-sm mb-2">
                 <div className="flex items-center justify-center gap-2">
                   <FcGoogle />
@@ -109,10 +109,10 @@ const SignUp = () => {
                   Sign up with Google
                 </div>
               </Button>
-            </div>
+            </div> */}
 
-            <div className="text-center">
-              Already have an account ?{' '}
+            <div className="text-center py-4">
+              Already have an account?{' '}
               <Link href="/auth/login" className="underline">
                 sign in
               </Link>
