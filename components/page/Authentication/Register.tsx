@@ -4,6 +4,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
 import React, { ChangeEvent, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { handleSignUp } from '@/lib/functions/auth';
 import { BiAtom } from 'react-icons/bi';
@@ -99,7 +100,7 @@ const SignUp = () => {
             {/* <div className="flex items-center gap-3">
               <Button className="!bg-transparent shadow-md text-black !text-sm mb-2">
                 <div className="flex items-center justify-center gap-2">
-                  <FcGoogle />
+                  <FaGithub  />
                   Sign up with Github
                 </div>
               </Button>

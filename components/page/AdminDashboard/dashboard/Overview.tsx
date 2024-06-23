@@ -84,7 +84,7 @@ const Overview = () => {
         {lists.map((item, idx) => (
           <span
             key={idx}
-            className={`${
+            className={` cursor-pointer ${
               idx != 3 ? 'lg:border-r md:pl-1' : 'md:pl-1'
             } border-[#ECECEE] w-full py-2 px-1 flex items-start justify-start gap-2`}
             onClick={() => onOpenModal(item.title)}

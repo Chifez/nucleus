@@ -12,6 +12,7 @@ import {
   handleSignInWithGoogle,
 } from '@/lib/functions/auth';
 import useUserState from '@/store/user';
+import { FaGithub } from 'react-icons/fa';
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -83,7 +84,7 @@ const SignIn = () => {
                 handleClick={handleSignInWithGithub}
               >
                 <div className="w-fit flex-nowrap flex items-center justify-center gap-2">
-                  <FcGoogle />
+                  <FaGithub />
                   Sign in with Github
                 </div>
               </Button>
