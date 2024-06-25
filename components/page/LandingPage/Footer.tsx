@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <section className=" h-full w-full px-4 lg:px-20 py-20">
+    <section className=" h-full w-full px-4 lg:px-20 pt-20 pb-10">
       <div className="flex md:flex-row flex-col items-start gap-8 justify-between my-4">
         <div className="space-y-4">
           <div className="flex items-center text-lg text-[#551fff]">
@@ -13,42 +13,59 @@ const Footer = () => {
             <h1 className="text-2xl">Nucleus</h1>
           </div>
           <div className="flex gap-2">
-            <FaGithub className=" w-5 h-5" />
-            <FaLinkedinIn className=" w-5 h-5" />
+            <div className=" p-2 flex items-center">
+              <FaGithub className=" w-5 h-5" />
+            </div>
+            <div className=" p-2 flex items-center">
+              <FaLinkedinIn className=" w-5 h-5" />
+            </div>
           </div>
         </div>
-        <div className="flex items-start justify-start gap-16 md:gap-4 text-slate-400 text-lg">
-          <span className="list-none space-y-3">
-            <li>
-              <a>About</a>
+        <div className="flex items-start justify-start gap-16 text-lg cursor-pointer">
+          <span className="text-sm list-none space-y-3">
+            <li className="text-sm font-medium">
+              <a>Quick Links</a>
             </li>
-            <li>
-              <a>Features</a>
+            <li className="text-sm">
+              <a href="#features">Features</a>
             </li>
-            <li>
-              <a>Pricing</a>
+            <li className="text-sm ">
+              <a href="#pricing">Pricing</a>
             </li>
-            <li>
-              <a>Blog</a>
+            <li className="text-sm ">
+              <a href="#blog">Blog</a>
+            </li>
+            <li className="text-sm ">
+              <a href="#FAQs">FAQs</a>
             </li>
           </span>
-          <span className="list-none space-y-3">
-            <li>
-              <a>Careers</a>
+          <span className="list-none space-y-3 cursor-pointer">
+            <li className="text-sm font-medium">
+              <a>Getting Started</a>
             </li>
-            <li>
+            <li className="text-sm ">
+              <a>Documentation</a>
+            </li>
+            <li className="text-sm">
+              <a>Book a Demo</a>
+            </li>
+          </span>
+
+          <span className="list-none space-y-3 cursor-pointer">
+            <li className="text-sm font-medium">
+              <a>Legal</a>
+            </li>
+            <li className="text-sm ">
               <a>Contact Us</a>
             </li>
-            <li>
-              <a>Privacy</a>
+            <li className="text-sm">
+              <a>Privacy policy</a>
             </li>
           </span>
         </div>
       </div>
-      <div className="flex items-center justify-center">
-        <p className="text-slate-400 text-sm">
-          © All rights reserved. Nucleus™ Inc 2024
-        </p>
+      <div className="flex items-center justify-center pt-5">
+        <p className="text-sm">© All rights reserved. Nucleus™ Inc 2024</p>
       </div>
     </section>
   );

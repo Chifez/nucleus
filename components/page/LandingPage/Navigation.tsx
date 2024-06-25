@@ -141,6 +141,7 @@ const Navigation: React.FC = () => {
     { title: 'Features', link: '#features' },
     { title: 'Pricing', link: '#pricing' },
     { title: 'FAQs', link: '#faq' },
+    { title: 'Blog', link: 'blog' },
   ];
 
   const isActive = (link: string): boolean => link === hash;
@@ -236,7 +237,7 @@ const Navigation: React.FC = () => {
           <ul className="flex flex-col items-start gap-10">
             {links.map((items, idx) => (
               <div key={idx} className="group relative">
-                <Link href={items.link} className="font-medium">
+                <Link href={items.link} className="font-medium" target="_blank">
                   {items.title}
                 </Link>
                 <span
