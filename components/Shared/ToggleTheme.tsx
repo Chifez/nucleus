@@ -1,3 +1,5 @@
+'use client';
+
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { RiMoonLine, RiSunLine } from 'react-icons/ri';
@@ -16,9 +18,9 @@ const ToggleTheme = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
+  // if (!mounted) {
+  //   return null;
+  // }
   return (
     <button
       onClick={toggleTheme}

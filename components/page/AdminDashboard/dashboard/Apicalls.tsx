@@ -1,3 +1,5 @@
+'use client';
+
 import DropDown from '@/components/Shared/DropDown';
 import Modal from '@/components/Shared/Modal';
 import Chart from '@/components/page/AdminDashboard/dashboard/Apichart';

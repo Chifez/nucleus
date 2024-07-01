@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { format, getDay, isSameMonth, isToday, startOfToday } from 'date-fns';
 import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md';

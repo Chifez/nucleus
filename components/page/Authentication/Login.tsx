@@ -1,18 +1,23 @@
+'use client';
+
 import Button from '@/components/Shared/Button';
 import UserInput from '@/components/Shared/UserInput';
 import Link from 'next/link';
 import React, { ChangeEvent, useState } from 'react';
 import { BiAtom } from 'react-icons/bi';
 import { FcGoogle } from 'react-icons/fc';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+// import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import {
-  handleSignIn,
+  // handleSignIn,
   handleSignInWithGithub,
   handleSignInWithGoogle,
+  login,
+  signup,
 } from '@/lib/functions/auth';
 import useUserState from '@/store/user';
 import { FaGithub } from 'react-icons/fa';
+import { createClient } from '@/utils/supabase/client';
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +36,42 @@ const SignIn = () => {
     }));
   };
 
-  const supabase = createClientComponentClient();
+  // const handleSignInWithGithub = async () => {
+  //   const supabase = createClient();
+
+  //   const { data, error } = await supabase.auth.signInWithOAuth({
+  //     provider: 'github',
+  //     options: {
+  //       redirectTo: `${location.origin}/dashboard`,
+  //       queryParams: {
+  //         access_type: 'offline',
+  //         prompt: 'consent',
+  //       },
+  //     },
+  //   });
+  //   // if (data.url) {
+  //   //   redirect('/dashboard');
+  //   //   router.push('/dashboard');
+  //   // }
+  // };
+
+  // const handleSignInWithGoogle = async () => {
+  //   const supabase = createClient();
+  //   const { data, error } = await supabase.auth.signInWithOAuth({
+  //     provider: 'google',
+  //     options: {
+  //       redirectTo: `${location.origin}/dashboard`,
+  //       queryParams: {
+  //         access_type: 'offline',
+  //         prompt: 'consent',
+  //       },
+  //     },
+  //   });
+  //   // if (data.url) {
+  //   //   // redirect('/dashboard');
+  //   //   router.push('/dashboard');
+  //   // }
+  // };
 
   return (
     <div className="w-full h-screen py-8 flex items-center justify-center bg-[#EAEAEA]">
@@ -43,7 +83,7 @@ const SignIn = () => {
         <header className="w-full flex justify-center pb-4">
           <h1 className="font-semibold text-xl">Login into your account</h1>
         </header>
-        <div className="flex-1 px-4">
+        <form className="flex-1 px-4">
           <div className="flex flex-col gap-4 py-2">
             <UserInput
               label="Email"
@@ -69,7 +109,7 @@ const SignIn = () => {
           <div className="my-2">
             <div
               className="flex items-center justify-center w-full py-2"
-              onClick={() => handleSignIn(email, password, router)}
+              onClick={() => login(formData)}
             >
               <Button>Login</Button>
             </div>
@@ -81,7 +121,7 @@ const SignIn = () => {
             <div className="flex items-center gap-2">
               <Button
                 className="!bg-transparent shadow-md text-black !text-sm mb-2"
-                handleClick={handleSignInWithGithub}
+                handleClick={() => handleSignInWithGithub()}
               >
                 <div className="w-fit flex-nowrap flex items-center justify-center gap-2">
                   <FaGithub />
@@ -90,7 +130,7 @@ const SignIn = () => {
               </Button>
               <Button
                 className="!bg-transparent shadow-md text-black !text-sm mb-2"
-                handleClick={() => handleSignInWithGoogle(setUser)}
+                handleClick={() => handleSignInWithGoogle()}
               >
                 <div className="w-fit flex flex-nowrap items-center justify-center gap-2">
                   <FcGoogle />
@@ -106,7 +146,7 @@ const SignIn = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

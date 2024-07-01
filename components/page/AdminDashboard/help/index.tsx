@@ -12,31 +12,31 @@ const ContactSupport = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <div className="max-h-full">
-          <header>
-            <h1 className="text-3xl font-semibold dark:text-white">Help</h1>
-            <p className="dark:text-white text-[#92959E]">Contact support</p>
-          </header>
-          <div className="flex flex-col gap-4 py-4">
-            <div className="w-[90vw] md:w-[35vw]">
-              <input
-                type="text"
-                placeholder="subject"
-                className="w-full py-3 px-2 rounded-lg outline-[#551FFF]"
-              />
-            </div>
-            <div className="w-[90vw] md:w-[35vw]">
-              <textarea
-                minLength={10}
-                placeholder="Your message here"
-                className="w-full h-[50vh] rounded-lg p-2 outline-[#551FFF] resize-none"
-              />
-            </div>
-            <Button className="w-36">submit</Button>
+      {/* <Layout> */}
+      <div className="max-h-full">
+        <header>
+          <h1 className="text-3xl font-semibold dark:text-white">Help</h1>
+          <p className="dark:text-white text-[#92959E]">Contact support</p>
+        </header>
+        <div className="flex flex-col gap-4 py-4">
+          <div className="w-[90vw] md:w-[35vw]">
+            <input
+              type="text"
+              placeholder="subject"
+              className="w-full py-3 px-2 rounded-lg outline-[#551FFF]"
+            />
           </div>
+          <div className="w-[90vw] md:w-[35vw]">
+            <textarea
+              minLength={10}
+              placeholder="Your message here"
+              className="w-full h-[50vh] rounded-lg p-2 outline-[#551FFF] resize-none"
+            />
+          </div>
+          <Button className="w-36">submit</Button>
         </div>
-      </Layout>
+      </div>
+      {/* </Layout> */}
     </>
   );
 };

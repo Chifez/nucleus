@@ -1,4 +1,5 @@
 'use client';
+
 import Button from '@/components/Shared/Button';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -7,9 +8,13 @@ import Marquee from 'react-fast-marquee';
 
 const Hero = () => {
   const logo = [
-    '/png-transparent-amazon-aws-logo.png',
-    '/png-transparent-amazon-aws-logo.png',
-    '/png-transparent-amazon-aws-logo.png',
+    '/firebase.png',
+    '/netlify.png',
+    '/nextjs.png',
+    '/gthub.png',
+    '/heroku.png',
+    '/postman.png',
+    '/vercel.png',
   ];
 
   const route = useRouter();
@@ -43,13 +48,13 @@ const Hero = () => {
 
           <div className="flex gap-2">
             <Button
-              className="relative w-fit text-base font-medium px-8 shine"
+              className="relative w-fit text-base font-medium px-4 md:px-8 shine"
               handleClick={() => route.push('/auth/login')}
             >
               Get started 🚀
             </Button>
-            <Button className="relative w-fit text-base font-medium px-8 bg-transparent border border-[#551FFF] hover:text-white text-[#551FFF] overflow-hidden swipe">
-              Get a demo 📖
+            <Button className="relative w-fit text-base font-medium px-4 md:px-8  bg-transparent border border-[#551FFF] hover:text-white text-[#551FFF] overflow-hidden swipe">
+              Book a demo 📖
             </Button>
           </div>
         </div>
@@ -70,10 +75,10 @@ const Hero = () => {
         <p>
           Trusted by thousand of Individuals and teams <br /> around the world
         </p>
-        <Marquee gradientWidth={500} gradient autoFill className="my-2">
+        <Marquee gradientWidth={500} gradient className="my-2">
           {logo.map((item, idx) => (
             <div className="relative w-36 h-20  mx-4" key={idx}>
-              <Image src={item} alt="frame" layout="fill" objectFit="cover" />
+              <Image src={item} alt="frame" layout="fill" objectFit="contain" />
             </div>
           ))}
         </Marquee>

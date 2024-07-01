@@ -1,3 +1,5 @@
+'use client';
+
 import Calendar from '@/components/Shared/Calendar';
 import Modal from '@/components/Shared/Modal';
 import useCalendar from '@/hooks/useCalendar';

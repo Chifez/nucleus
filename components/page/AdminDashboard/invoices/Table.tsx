@@ -1,3 +1,5 @@
+'use client';
+
 import Chip from '@/components/Shared/Chip';
 import DropDown from '@/components/Shared/DropDown';
 import Modal from '@/components/Shared/Modal';

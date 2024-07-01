@@ -1,3 +1,5 @@
+'use client';
+
 import Modal from '@/components/Shared/Modal';
 import React, { useState } from 'react';
 import { CgOptions } from 'react-icons/cg';

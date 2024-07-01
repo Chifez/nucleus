@@ -1,5 +1,5 @@
-import { Accordion } from '@szhsin/react-accordion';
-import AccordionItem from '@/components/Shared/Accordion';
+// import { Accordion } from '@szhsin/react-accordion';
+// import AccordionItem from '@/components/Shared/Accordion';
 
 const FAQ = () => {
   const items = [
@@ -18,14 +18,14 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-5 px-20">
+    <section id="faq" className="py-5 px-5 md:px-20">
       <div className="text-center py-4">
         <h1 className="font-[500] text-3xl mb-2">FAQs</h1>
         <p className="text-sm font-normal text-zinc-500">
           What are your questions?
         </p>
       </div>
-      <div className="mx-2 my-4 border-t">
+      {/* <div className="mx-2 my-4 border-t">
         <Accordion transition transitionTimeout={200}>
           {items.map(({ header, content }, i) => (
             <AccordionItem header={header} key={i}>
@@ -33,7 +33,7 @@ const FAQ = () => {
             </AccordionItem>
           ))}
         </Accordion>
-      </div>
+      </div> */}
     </section>
   );
 };

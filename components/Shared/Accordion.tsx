@@ -1,7 +1,14 @@
-import { Accordion, AccordionItem as Item } from '@szhsin/react-accordion';
+import { AccordionItem as Item } from '@szhsin/react-accordion';
 import { FaChevronDown } from 'react-icons/fa';
 
-const AccordionItem = ({ header, ...rest }) => (
+const AccordionItem = ({
+  header,
+  ...rest
+}: {
+  children: string;
+  header: string;
+  key: number;
+}) => (
   <Item
     {...rest}
     header={({ state: { isEnter } }) => (

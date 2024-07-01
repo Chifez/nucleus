@@ -1,3 +1,5 @@
+'use client';
+
 import { CgOptions } from 'react-icons/cg';
 import Chart from '../dashboard/Apichart';
 import ReactECharts from 'echarts-for-react';

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import React, { useEffect, useState, useContext } from 'react';
 import { FaUserAlt, FaFileInvoice } from 'react-icons/fa';
@@ -6,7 +8,7 @@ import { AiTwotoneSetting } from 'react-icons/ai';
 import { MdPhoneInTalk } from 'react-icons/md';
 import { RiLogoutBoxFill } from 'react-icons/ri';
 import { BiAtom, BiChevronsLeft, BiChevronsRight } from 'react-icons/bi';
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 
 import Image from 'next/image';
 import {
@@ -16,6 +18,8 @@ import {
 import ToggleTheme from '@/components/Shared/ToggleTheme';
 import useSideBarState from '@/store/siderbar';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { handleLogout } from '@/lib/functions/auth';
+import { createClient } from '@/utils/supabase/client';
 const links = [
   { id: 1, name: 'profile', links: '/dashboard', icon: <FaUserAlt /> },
   {
@@ -47,19 +51,37 @@ interface Link {
 }
 const SideBar = () => {
   const { isOpen, toggleOpen } = useSideBarState();
-  const router = useRouter();
-  const currentPath = router.pathname;
+  const [userDetails, setUserDetails] = useState({
+    email: '',
+    fullName: '',
+    avatar: '',
+  });
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_PROJECT_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_ANON_KEY;
-  const supabase = createClientComponentClient({ supabaseUrl, supabaseKey });
+  const currentPath = usePathname();
+  const supabase = createClient();
 
-  const logOut = async () => {
-    await supabase.auth.signOut();
-  };
+  useEffect(() => {
+    const getUserDetails = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (user) {
+        const currentUserDetails = user?.identities[0]?.identity_data;
+        setUserDetails({
+          ...userDetails,
+          email: currentUserDetails?.email,
+          fullName: currentUserDetails?.full_name,
+          avatar: currentUserDetails?.avatar_url,
+        });
+        console.log('user from sidebar', user?.identities[0]?.identity_data);
+      }
+    };
+    getUserDetails();
+  }, []);
   return (
     <div
-      className={`fixed bg-white w-[50vw] h-[100dvh]  z-50 md:h-full md:z-0 md:relative px-2 py-5 rounded-l-xl flex flex-col items-center gap-8 dark:bg-[#0c0c0d] transition-all duration-600 ${
+      className={`fixed bg-white  w-[50vw] h-[100dvh]  z-50 md:h-full md:z-0 md:relative px-2 py-5 rounded-l-xl flex flex-col items-center gap-8 dark:bg-[#0c0c0d] transition-all duration-600 ${
         isOpen
           ? '-translate-x-[100%] md:translate-x-0 md:w-[6vw]'
           : 'translate-x-0 md:w-[15vw]'
@@ -69,18 +91,7 @@ const SideBar = () => {
         <BiAtom className="w-6 h-6" />
         <h1 className={`${isOpen && 'md:hidden'}`}>Nucleus</h1>
       </div>
-      <div
-        className={`"line-clamp-1 flex items-center justify-start gap-2 text-lg py-1 ${
-          isOpen ? 'px-1' : 'pl-1 pr-3'
-        }  border bg-[#EAEAEA] dark:bg-[#41395b] dark:text-black rounded-full`}
-      >
-        <div className="relative w-6 h-6 rounded-full overflow-hidden">
-          <Image src="/corporate.jpg" layout="fill" alt="user" />
-        </div>
-        <h1 className={`${isOpen && 'md:hidden'}  text-sm  line-clamp-1`}>
-          Nwosu Emmanuel
-        </h1>
-      </div>
+
       <div
         className="absolute -right-5 top-9 w-8 h-8 text-[#551FFF] dark:text-white hover:text-[#D0D2DA] cursor-pointer"
         onClick={toggleOpen}
@@ -96,9 +107,9 @@ const SideBar = () => {
           <Link
             href={item.links}
             key={idx}
-            className={`flex items-center justify-center ${
-              isOpen ? 'px-8 md:px-5' : 'px-8'
-            } py-4 gap-2 cursor-pointer hover:text-[#551FFF] hover:bg-[#F3F0FF] rounded-3xl ${
+            className={`flex items-center justify-center  ${
+              isOpen ? ' rounded-full' : 'rounded-3xl'
+            } p-3 gap-2 cursor-pointer hover:text-[#551FFF] hover:bg-[#F3F0FF]  ${
               currentPath == item.links
                 ? 'bg-[#F3F0FF] text-[#551FFF]'
                 : 'text-[#D0D2DA]'
@@ -106,31 +117,31 @@ const SideBar = () => {
             title={isOpen ? item.name : ''}
           >
             <span
-              className={`flex justify-center gap-2  
-             ${isOpen ? 'w-20 md:w-fit items-stretch' : 'w-20 items-stretch'}
+              className={`flex  items-center 
+              ${isOpen ? ' justify-center' : 'justify-start w-20 gap-2'}
             `}
             >
               <div>{item.icon}</div>
-              <h1
-                className={`leading-none w-full text-sm capitalize ${
-                  isOpen && 'md:hidden'
-                } `}
-              >
-                {item.name}
-              </h1>
+              <div>
+                {!isOpen && (
+                  <h1 className={`leading-none w-full text-sm capitalize `}>
+                    {item.name}
+                  </h1>
+                )}
+              </div>
             </span>
           </Link>
         ))}
         <button
-          className={`flex items-center justify-center ${
-            isOpen ? 'px-8 md:px-5' : 'px-8'
-          } py-4 gap-2 cursor-pointer hover:text-[#551FFF] text-[#D0D2DA] hover:bg-[#F3F0FF] rounded-3xl`}
+          className={`flex items-center justify-center  ${
+            isOpen ? 'rounded-full' : 'rounded-3xl'
+          } p-3 gap-2 cursor-pointer hover:text-[#551FFF] text-[#D0D2DA] hover:bg-[#F3F0FF] `}
           title={isOpen ? 'LogOut' : ''}
-          onClick={logOut}
+          onClick={() => handleLogout()}
         >
           <span
-            className={`flex justify-center gap-2  
-             ${isOpen ? 'w-20 md:w-fit items-stretch' : 'w-20 items-stretch'}
+            className={`flex  items-center 
+            ${isOpen ? ' justify-center' : 'justify-start w-20 gap-2 '}
             `}
           >
             <div>
@@ -147,6 +158,28 @@ const SideBar = () => {
         </button>
       </div>
       <ToggleTheme />
+
+      <div
+        className={`"line-clamp-1 flex items-center justify-start gap-2 text-lg py-1 ${
+          isOpen ? 'px-1' : 'pl-1 pr-3'
+        }  dark:bg-[#41395b] dark:text-black rounded-full`}
+      >
+        <div className="relative w-6 h-6 rounded-full overflow-hidden">
+          <Image
+            src={
+              userDetails.avatar == '' ? '/corporate.jpg' : userDetails.avatar
+            }
+            layout="fill"
+            alt="user"
+          />
+        </div>
+        <div className={`${isOpen && 'md:hidden'}`}>
+          <h1 className="text-sm font-semibold line-clamp-1 capitalize">
+            {userDetails.fullName}
+          </h1>
+          <p className="text-xs">{userDetails.email}</p>
+        </div>
+      </div>
     </div>
   );
 };

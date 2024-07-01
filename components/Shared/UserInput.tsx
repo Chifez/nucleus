@@ -1,3 +1,5 @@
+'use client';
+
 import { ChangeEvent, useState } from 'react';
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from 'react-icons/md';
 const UserInput = (props: {

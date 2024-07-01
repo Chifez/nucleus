@@ -3,7 +3,12 @@ import Button from './Button';
 import { PRICING_CLASS } from '@/lib/utils/data/pricing';
 
 type Props = {
-  list: { title: any; desc: any; pricing: any; offers: any };
+  list: {
+    title: string;
+    desc: string;
+    pricing?: { monthly: string; yearly: string };
+    offers: string[];
+  };
   plan: string;
 };
 
@@ -11,7 +16,7 @@ const PricingCard = (props: Props) => {
   const { title, desc, pricing, offers } = props.list;
 
   return (
-    <section className="bg-white shadow-md rounded-md p-4 h-fit">
+    <section className="bg-white shadow-md rounded-md p-4 w-full h-fit">
       <div className="flex flex-col justify-between pb-4 space-y-10 border-b">
         <div className="space-y-4">
           <Button className="bg-purple-500 w-fit text-sm px-4 py-1">

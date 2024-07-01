@@ -1,5 +1,9 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import SideBar from '@/components/Shared/SideBar';
 import Head from 'next/head';
+import { createClient } from '@/utils/supabase/client';
 
 interface Link {
   id: number;
@@ -7,8 +11,24 @@ interface Link {
   links: string;
   icon: JSX.Element;
 }
+const supabase = createClient();
 
 const Layout = (props: { children: JSX.Element }) => {
+  const [isUser, setIsUser] = useState(false);
+
+  // useEffect(() => {
+  //   const insertData = async () => {
+  //     const {
+  //       data: { user },
+  //     } = await supabase.auth.getUser();
+
+  //     if (user) {
+  //       setIsUser(true);
+  //     }
+  //   };
+  //   insertData();
+  // }, []);
+
   return (
     <>
       <Head>
@@ -18,9 +38,14 @@ const Layout = (props: { children: JSX.Element }) => {
         <link rel="icon" href="/nucleus_favicon.svg" />
       </Head>
 
-      <div className="flex md:h-screen w-screen overflow-hidden">
+      <div className="flex md:h-screen w-screen overflow-hidden bg-[#EAEAEA] dark:bg-[#41395b] p-2">
+        {/* {isUser ? (
+          <div className="w-full h-full bg-black/20">
+            <p> Loading</p>
+          </div>
+        ) : null} */}
         <SideBar />
-        <div className="flex-1 bg-[#EAEAEA] dark:bg-[#41395b] dark:text-black px-2 md:px-5 py-2 h-full overflow-y-scroll ">
+        <div className="flex-1  dark:text-black px-2 md:px-5 py-2 h-full overflow-y-scroll ">
           {props.children}
         </div>
       </div>

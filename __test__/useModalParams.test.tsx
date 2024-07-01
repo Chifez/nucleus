@@ -1,7 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import useModalParams from '../hooks/useModalParams';
 
-// Mock useRouter, usePathname, and useSearchParams from next/navigation
 jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
   usePathname: jest.fn(),

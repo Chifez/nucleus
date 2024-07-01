@@ -1,3 +1,5 @@
+'use client';
+
 import Button from '@/components/Shared/Button';
 import UserInput from '@/components/Shared/UserInput';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
@@ -6,7 +8,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
-import { handleSignUp } from '@/lib/functions/auth';
+import { signup } from '@/lib/functions/auth';
 import { BiAtom } from 'react-icons/bi';
 
 const SignUp = () => {
@@ -17,7 +19,7 @@ const SignUp = () => {
     confirmPassword: '',
   });
   const { fullname, email, password, confirmPassword } = formData;
-  const router = useRouter();
+
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
       ...prev,
@@ -88,7 +90,7 @@ const SignUp = () => {
           <div>
             <div
               className="flex items-center justify-center w-full py-2"
-              onClick={() => handleSignUp(email, password, router)}
+              onClick={() => signup(formData)}
             >
               <Button>Create Account</Button>
             </div>

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ReactNode, useRef } from 'react';
 import { IoMdClose } from 'react-icons/io';
 

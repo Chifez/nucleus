@@ -1,3 +1,5 @@
+'use client';
+
 import { CgOptions } from 'react-icons/cg';
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts';
