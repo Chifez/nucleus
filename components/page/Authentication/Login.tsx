@@ -18,6 +18,7 @@ import {
 import useUserState from '@/store/user';
 import { FaGithub } from 'react-icons/fa';
 import { createClient } from '@/utils/supabase/client';
+import { useFormStatus } from 'react-dom';
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -36,43 +37,6 @@ const SignIn = () => {
     }));
   };
 
-  // const handleSignInWithGithub = async () => {
-  //   const supabase = createClient();
-
-  //   const { data, error } = await supabase.auth.signInWithOAuth({
-  //     provider: 'github',
-  //     options: {
-  //       redirectTo: `${location.origin}/dashboard`,
-  //       queryParams: {
-  //         access_type: 'offline',
-  //         prompt: 'consent',
-  //       },
-  //     },
-  //   });
-  //   // if (data.url) {
-  //   //   redirect('/dashboard');
-  //   //   router.push('/dashboard');
-  //   // }
-  // };
-
-  // const handleSignInWithGoogle = async () => {
-  //   const supabase = createClient();
-  //   const { data, error } = await supabase.auth.signInWithOAuth({
-  //     provider: 'google',
-  //     options: {
-  //       redirectTo: `${location.origin}/dashboard`,
-  //       queryParams: {
-  //         access_type: 'offline',
-  //         prompt: 'consent',
-  //       },
-  //     },
-  //   });
-  //   // if (data.url) {
-  //   //   // redirect('/dashboard');
-  //   //   router.push('/dashboard');
-  //   // }
-  // };
-
   return (
     <div className="w-full h-screen py-8 flex items-center justify-center bg-[#EAEAEA]">
       <div className="w-fit md:w-[30vw] min-h-[40vh] flex flex-col bg-white rounded-lg px-2 py-4 ">
@@ -83,37 +47,38 @@ const SignIn = () => {
         <header className="w-full flex justify-center pb-4">
           <h1 className="font-semibold text-xl">Login into your account</h1>
         </header>
-        <form className="flex-1 px-4">
-          <div className="flex flex-col gap-4 py-2">
-            <UserInput
-              label="Email"
-              placeholder="Your Email"
-              value={email}
-              name="email"
-              inputChange={onInputChange}
-              className="rounded-lg w-full"
-            />
-            <UserInput
-              label="Password"
-              placeholder="Your Password"
-              value={password}
-              name="password"
-              inputChange={onInputChange}
-              type="password"
-              className=" rounded-lg w-full"
-            />
-          </div>
-          <Link href="#" className=" font-medium">
-            forget password?
-          </Link>
-          <div className="my-2">
-            <div
-              className="flex items-center justify-center w-full py-2"
-              onClick={() => login(formData)}
-            >
-              <Button>Login</Button>
+        <div className="flex-1 px-4">
+          <form action={() => login(formData)}>
+            <div className="flex flex-col gap-4 py-2">
+              <UserInput
+                label="Email"
+                placeholder="Your Email"
+                value={email}
+                name="email"
+                inputChange={onInputChange}
+                className="rounded-lg w-full"
+              />
+              <UserInput
+                label="Password"
+                placeholder="Your Password"
+                value={password}
+                name="password"
+                inputChange={onInputChange}
+                type="password"
+                className=" rounded-lg w-full"
+              />
             </div>
-            <div className="text-center flex justify-center items-center my-1">
+            <div className="my-2">
+              <Link href="#" className=" font-medium">
+                forget password?
+              </Link>
+              <div className="flex items-center justify-center w-full py-2">
+                <Button type="submit">Login</Button>
+              </div>
+            </div>
+          </form>
+          <div className="my-2">
+            <div className="text-center flex justify-center items-center my-2">
               <div className="w-full bg-black h-[1px] mx-1" />
               <p className="font-semibold"> OR</p>
               <div className="w-full bg-black h-[1px] mx-1" />
@@ -146,7 +111,7 @@ const SignIn = () => {
               </Link>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

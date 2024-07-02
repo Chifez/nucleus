@@ -37,7 +37,7 @@ const PricingCard = (props: Props) => {
             </h1>
           )
         ) : (
-          <h1 className="text-4xl font-semibold">Let's Talk</h1>
+          <h1 className="text-4xl font-semibold">Let&pos;s Talk</h1>
         )}
       </div>
       <div className="py-6 h-[15rem] border-b">

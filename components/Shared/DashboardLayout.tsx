@@ -39,11 +39,6 @@ const Layout = (props: { children: JSX.Element }) => {
       </Head>
 
       <div className="flex md:h-screen w-screen overflow-hidden bg-[#EAEAEA] dark:bg-[#41395b] p-2">
-        {/* {isUser ? (
-          <div className="w-full h-full bg-black/20">
-            <p> Loading</p>
-          </div>
-        ) : null} */}
         <SideBar />
         <div className="flex-1  dark:text-black px-2 md:px-5 py-2 h-full overflow-y-scroll ">
           {props.children}

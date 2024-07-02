@@ -2,7 +2,6 @@
 
 import Button from '@/components/Shared/Button';
 import UserInput from '@/components/Shared/UserInput';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
 import React, { ChangeEvent, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
@@ -10,6 +9,7 @@ import { FaGithub } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { signup } from '@/lib/functions/auth';
 import { BiAtom } from 'react-icons/bi';
+import { useFormStatus } from 'react-dom';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +19,7 @@ const SignUp = () => {
     confirmPassword: '',
   });
   const { fullname, email, password, confirmPassword } = formData;
+  const { pending } = useFormStatus();
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
@@ -50,7 +51,7 @@ const SignUp = () => {
         <header className="w-full flex justify-center pb-4">
           <h1 className="font-semibold text-xl">Create new account</h1>
         </header>
-        <div className="flex-1 px-4">
+        <form className="flex-1 px-4" action={() => signup(formData)}>
           <div className="flex flex-col gap-4 py-2">
             <UserInput
               label="Fullname"
@@ -88,31 +89,9 @@ const SignUp = () => {
             />
           </div>
           <div>
-            <div
-              className="flex items-center justify-center w-full py-2"
-              onClick={() => signup(formData)}
-            >
-              <Button>Create Account</Button>
+            <div className="flex items-center justify-center w-full py-2">
+              <Button type="submit">Create Account</Button>
             </div>
-            {/* <div className="text-center flex justify-center items-center my-1">
-              <div className="w-full bg-black h-[1px] mx-1" />
-              <p className="font-semibold"> OR</p>
-              <div className="w-full bg-black h-[1px] mx-1" />
-            </div> */}
-            {/* <div className="flex items-center gap-3">
-              <Button className="!bg-transparent shadow-md text-black !text-sm mb-2">
-                <div className="flex items-center justify-center gap-2">
-                  <FaGithub  />
-                  Sign up with Github
-                </div>
-              </Button>
-              <Button className="!bg-transparent shadow-md text-black !text-sm mb-2">
-                <div className="flex items-center justify-center gap-2">
-                  <FcGoogle />
-                  Sign up with Google
-                </div>
-              </Button>
-            </div> */}
 
             <div className="text-center py-4">
               Already have an account?{' '}
@@ -121,7 +100,7 @@ const SignUp = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
