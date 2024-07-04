@@ -20,6 +20,7 @@ import useSideBarState from '@/store/siderbar';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { handleLogout } from '@/lib/functions/auth';
 import { createClient } from '@/utils/supabase/client';
+import useDimension from '@/hooks/useDimension';
 const links = [
   { id: 1, name: 'profile', links: '/dashboard', icon: <FaUserAlt /> },
   {
@@ -59,6 +60,15 @@ const SideBar = () => {
 
   const currentPath = usePathname();
   const supabase = createClient();
+  const isMobile = useDimension();
+
+  const handleClickLink = () => {
+    if (isMobile) {
+      toggleOpen();
+    } else {
+      return;
+    }
+  };
 
   useEffect(() => {
     const getUserDetails = async () => {
@@ -109,6 +119,7 @@ const SideBar = () => {
           <Link
             prefetch={true}
             href={item.links}
+            onClick={handleClickLink}
             key={idx}
             className={`flex w-full items-center   ${
               isOpen

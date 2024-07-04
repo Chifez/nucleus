@@ -34,7 +34,7 @@ export default function Home() {
             <h1 className="text-3xl font-semibold dark:text-white">
               Dashboard
             </h1>
-            <p className="dark:text-white text-[#92959E]">
+            <p className="dark:text-white text-[#92959E] max-w-[90%]">
               Information about your current plan and usages
             </p>
             {/* <p className="dark:text-white">Hello, {getFirstName(user)}</p> */}
@@ -42,7 +42,7 @@ export default function Home() {
 
           <div
             onClick={() => onOpenModal()}
-            className="h-fit w-fit p-2 border border-[#002E94] rounded-md bg-white text-[#551fff]  flex items-center cursor-pointer"
+            className="h-fit w-fit p-2 border border-[#002E94] rounded-md bg-white text-[#551fff] whitespace-nowrap flex items-center cursor-pointer"
           >
             <MdOutlineAdd className="h-5 w-5" />
             <p>Add New</p>
