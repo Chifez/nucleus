@@ -66,7 +66,7 @@ const SideBar = () => {
         data: { user },
       } = await supabase.auth.getUser();
 
-      if (user) {
+      if (user && user.identities) {
         const currentUserDetails = user?.identities[0]?.identity_data;
         setUserDetails({
           ...userDetails,
