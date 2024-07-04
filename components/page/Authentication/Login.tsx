@@ -73,7 +73,9 @@ const SignIn = () => {
                 forget password?
               </Link>
               <div className="flex items-center justify-center w-full py-2">
-                <Button type="submit">Login</Button>
+                <Button type="submit" className="w-full">
+                  Login
+                </Button>
               </div>
             </div>
           </form>
@@ -85,19 +87,19 @@ const SignIn = () => {
             </div>
             <div className="flex items-center gap-2">
               <Button
-                className="!bg-transparent shadow-md text-black !text-sm mb-2"
+                className="!bg-transparent shadow-md mb-2"
                 handleClick={() => handleSignInWithGithub()}
               >
-                <div className="w-fit flex-nowrap flex items-center justify-center gap-2">
+                <div className="w-fit flex-nowrap flex items-center text-black text-sm justify-center gap-2">
                   <FaGithub />
                   Sign in with Github
                 </div>
               </Button>
               <Button
-                className="!bg-transparent shadow-md text-black !text-sm mb-2"
+                className="!bg-transparent shadow-md  mb-2"
                 handleClick={() => handleSignInWithGoogle()}
               >
-                <div className="w-fit flex flex-nowrap items-center justify-center gap-2">
+                <div className="w-fit flex flex-nowrap items-center text-black text-sm justify-center gap-2">
                   <FcGoogle />
                   Sign in with Google
                 </div>

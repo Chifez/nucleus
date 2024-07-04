@@ -9,7 +9,10 @@ const font = Averta({
 });
 
 export const metadata: Metadata = {
-  title: 'Nucleus - Home',
+  title: {
+    template: 'Nucleus - %s',
+    default: 'Home',
+  },
   description: 'Nucleus is all in one app for your public api',
 };
 

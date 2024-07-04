@@ -19,7 +19,7 @@ const PricingCard = (props: Props) => {
     <section className="bg-white shadow-md rounded-md p-4 w-full h-fit">
       <div className="flex flex-col justify-between pb-4 space-y-10 border-b">
         <div className="space-y-4">
-          <Button className="bg-purple-500 w-fit text-sm px-4 py-1">
+          <Button className="bg-purple-500 text-sm px-4 py-1 capitalize">
             {title}
           </Button>
           <p className="text-xs font-medium text-gray-500">{desc}</p>
@@ -50,7 +50,7 @@ const PricingCard = (props: Props) => {
       </div>
       <div className="pt-4">
         <Button
-          className={`py-2 bg-transparent text-sm font-semibold border ${
+          className={`py-2 bg-transparent text-sm w-full font-semibold border ${
             title === PRICING_CLASS.CUSTOM
               ? 'bg-violet-700 text-white'
               : 'text-zinc-800 '

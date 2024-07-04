@@ -90,7 +90,9 @@ const SignUp = () => {
           </div>
           <div>
             <div className="flex items-center justify-center w-full py-2">
-              <Button type="submit">Create Account</Button>
+              <Button type="submit" className="w-full">
+                Create Account
+              </Button>
             </div>
 
             <div className="text-center py-4">

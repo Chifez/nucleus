@@ -107,6 +107,7 @@ const SideBar = () => {
       <div className="w-full h-fit pb-4 border-b gap-1 flex flex-col justify-between">
         {links.map((item, idx) => (
           <Link
+            prefetch={true}
             href={item.links}
             key={idx}
             className={`flex w-full items-center   ${

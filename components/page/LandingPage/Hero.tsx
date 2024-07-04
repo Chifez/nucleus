@@ -53,7 +53,7 @@ const Hero = () => {
             >
               Get started 🚀
             </Button>
-            <Button className="relative w-fit text-base font-medium px-4 md:px-8  bg-transparent border border-[#551FFF] hover:text-white text-[#551FFF] overflow-hidden swipe">
+            <Button className="relative w-fit text-base font-medium px-4 md:px-8  bg-transparent border border-[#551FFF] !text-[#551FFF] hover:!text-white  overflow-hidden swipe">
               Book a demo 📖
             </Button>
           </div>

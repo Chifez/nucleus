@@ -20,9 +20,14 @@ const Button = ({
   return (
     <button
       type={type ? type : 'button'}
-      disabled={isLoading || pending}
       onClick={handleClick}
-      className={`bg-[#551FFF] text-white text-center text-xl font-semibold rounded-lg w-full p-2 ${className} cursor-pointer`}
+      className={`bg-[#551FFF] text-white text-center text-base font-semibold rounded-lg p-2 cursor-pointer ${
+        isLoading || pending ? 'cursor-not-allowed' : ''
+      } ${className}`}
+      style={{
+        pointerEvents: isLoading || pending ? 'none' : 'auto',
+        opacity: isLoading || pending ? 0.7 : 1,
+      }}
     >
       {isLoading || pending ? <h1>Loading...</h1> : <div>{children}</div>}
     </button>

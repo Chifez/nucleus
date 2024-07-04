@@ -7,10 +7,6 @@ import BillCalendar from './BillCalendar';
 import UserLocation from './UserLocation';
 import Chart from './Chart';
 
-export const metadata = {
-  title: 'Modern dashboard - Billing',
-};
-
 const Billing = () => {
   const bills = [
     { title: 'Recent Bills', amount: '$25,000', chart: <Chart /> },
