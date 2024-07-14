@@ -48,9 +48,15 @@ const Calendar = () => {
           })}
         </div>
         <div className="grid grid-cols-7 gap-4 place-items-center mt-2 ">
+          {Array.from({ length: getDay(firstDayOfMonth) }).map((_, idx) => (
+            <div
+              key={`empty-${idx}`}
+              className="text-sm font-semibold capitalize"
+            ></div>
+          ))}
           {daysInMonth.map((day, idx) => {
             return (
-              <div key={idx} className={colStartClasses[getDay(day)]}>
+              <div key={idx}>
                 <p
                   className={`text-sm cursor-pointer flex items-center justify-center font-semibold h-6 w-6 rounded-full  hover:text-white ${
                     isSameMonth(day, today)

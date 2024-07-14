@@ -91,18 +91,80 @@ const SideBar = () => {
   }, []);
   return (
     <div
-      className={`fixed bg-white w-[50vw] h-[100dvh]  z-50 md:h-full md:z-0 md:relative px-4 py-5 rounded-l-xl flex flex-col items-start gap-8 dark:bg-[#0c0c0d] transition-all duration-600 ${
+      className={`fixed bg-white w-[50vw] h-[100dvh] z-50 md:h-full md:z-0 md:relative px-4 py-5 rounded-l-xl flex flex-col items-start justify-between gap-8 dark:bg-[#0c0c0d] transition-all duration-600 ${
         isOpen
           ? 'items-center -translate-x-[100%] md:translate-x-0 md:w-[6vw]'
           : 'items-start translate-x-0 md:w-[15vw]'
       } `}
     >
-      <div className="flex items-center gap-1 py-3 text-[#551fff]">
-        <BiAtom className="w-6 h-6" />
-        <h1 className={`${isOpen && 'md:hidden'} font-semibold text-base`}>
-          Nucleus
-        </h1>
-      </div>
+      <span className="w-full space-y-4">
+        <div className="flex w-full items-center justify-center gap-1 py-3 text-[#551fff]">
+          <BiAtom className="w-6 h-6" />
+          <h1 className={`${isOpen && 'md:hidden'} font-semibold text-base`}>
+            Nucleus
+          </h1>
+        </div>
+
+        <div className="w-full h-fit pb-4 border-b gap-1 flex flex-col justify-between">
+          {links.map((item, idx) => (
+            <Link
+              prefetch={true}
+              href={item.links}
+              onClick={handleClickLink}
+              key={idx}
+              className={`flex w-full items-center   ${
+                isOpen
+                  ? 'justify-center rounded-full'
+                  : 'justify-start rounded-lg'
+              } p-3 cursor-pointer hover:text-[#551FFF] hover:bg-[#F3F0FF]  ${
+                currentPath == item.links
+                  ? 'bg-[#F3F0FF] text-[#551FFF]'
+                  : 'text-[#9e9fa1]'
+              }`}
+              title={isOpen ? item.name : ''}
+            >
+              <span
+                className={`flex items-center 
+              ${isOpen ? '' : ' w-20 gap-2'}
+            `}
+              >
+                <div>{item.icon}</div>
+                {!isOpen && (
+                  <h1 className={`leading-none w-full text-sm capitalize `}>
+                    {item.name}
+                  </h1>
+                )}
+              </span>
+            </Link>
+          ))}
+          <button
+            className={`flex w-full items-center ${
+              isOpen
+                ? 'justify-center rounded-full'
+                : ' justify-start rounded-lg'
+            } p-3 cursor-pointer hover:text-[#551FFF] text-[#9e9fa1] hover:bg-[#F3F0FF] `}
+            title={isOpen ? 'LogOut' : ''}
+            onClick={() => handleLogout()}
+          >
+            <span
+              className={`flex items-center 
+            ${isOpen ? ' justify-center' : 'justify-start w-20 gap-2 '}
+            `}
+            >
+              <div>
+                <RiLogoutBoxFill />
+              </div>
+              <h1
+                className={`leading-none w-full text-sm capitalize ${
+                  isOpen && 'md:hidden'
+                } `}
+              >
+                LogOut
+              </h1>
+            </span>
+          </button>
+        </div>
+      </span>
 
       <div
         className="absolute -right-5 top-9 w-8 h-8 text-[#551FFF] dark:text-white hover:text-[#D0D2DA] cursor-pointer"
@@ -114,86 +176,35 @@ const SideBar = () => {
           <TbSquareRoundedChevronsLeftFilled className="w-10 h-10 md:w-6 md:h-6" />
         )}
       </div>
-      <div className="w-full h-fit pb-4 border-b gap-1 flex flex-col justify-between">
-        {links.map((item, idx) => (
-          <Link
-            prefetch={true}
-            href={item.links}
-            onClick={handleClickLink}
-            key={idx}
-            className={`flex w-full items-center   ${
-              isOpen
-                ? 'justify-center rounded-full'
-                : 'justify-start rounded-lg'
-            } p-3 cursor-pointer hover:text-[#551FFF] hover:bg-[#F3F0FF]  ${
-              currentPath == item.links
-                ? 'bg-[#F3F0FF] text-[#551FFF]'
-                : 'text-[#9e9fa1]'
-            }`}
-            title={isOpen ? item.name : ''}
-          >
-            <span
-              className={`flex items-center 
-              ${isOpen ? '' : ' w-20 gap-2'}
-            `}
-            >
-              <div>{item.icon}</div>
-              {!isOpen && (
-                <h1 className={`leading-none w-full text-sm capitalize `}>
-                  {item.name}
-                </h1>
-              )}
-            </span>
-          </Link>
-        ))}
-        <button
-          className={`flex w-full  items-center   ${
-            isOpen ? 'justify-center rounded-full' : ' justify-start rounded-lg'
-          } p-3 cursor-pointer hover:text-[#551FFF] text-[#9e9fa1] hover:bg-[#F3F0FF] `}
-          title={isOpen ? 'LogOut' : ''}
-          onClick={() => handleLogout()}
-        >
-          <span
-            className={`flex items-center 
-            ${isOpen ? ' justify-center' : 'justify-start w-20 gap-2 '}
-            `}
-          >
-            <div>
-              <RiLogoutBoxFill />
-            </div>
-            <h1
-              className={`leading-none w-full text-sm capitalize ${
-                isOpen && 'md:hidden'
-              } `}
-            >
-              LogOut
-            </h1>
-          </span>
-        </button>
-      </div>
-      <div className="w-full flex items-center justify-center">
-        <ToggleTheme />
-      </div>
 
-      <div
-        className={`"line-clamp-1 flex items-center justify-start gap-2 text-lg py-1 ${
-          isOpen ? 'px-1' : 'pl-1 pr-3'
-        }  dark:bg-[#41395b] dark:text-black rounded-full`}
-      >
-        <div className="relative w-6 h-6 rounded-full overflow-hidden">
-          <Image
-            src={userDetails.avatar ?? '/corporate.jpg'}
-            layout="fill"
-            alt="user"
-          />
+      <span className=" w-full  space-y-4">
+        <div className="w-full flex items-center justify-center">
+          <ToggleTheme />
         </div>
-        <div className={`${isOpen && 'md:hidden'}`}>
-          <h1 className="text-sm font-semibold line-clamp-1 capitalize">
-            {userDetails.fullName ?? 'John Doe'}
-          </h1>
-          <p className="text-xs">{userDetails.email ?? 'Jonhdoe@gmail.com'}</p>
+
+        <div
+          className={`"line-clamp-1 flex items-center gap-2 text-lg py-1 ${
+            isOpen ? 'px-1 justify-center' : 'pl-1 pr-3 justify-start'
+          }  dark:bg-[#41395b] dark:text-black rounded-full`}
+        >
+          <div className="relative w-6 h-6 rounded-full ">
+            <Image
+              src={userDetails.avatar ?? '/corporate.jpg'}
+              layout="fill"
+              alt="user"
+            />
+          </div>
+
+          <div className={`${isOpen && 'md:hidden'}`}>
+            <h1 className="text-sm font-semibold line-clamp-1 capitalize">
+              {userDetails.fullName ?? 'John Doe'}
+            </h1>
+            <p className="text-xs  text-ellipsis">
+              {userDetails.email ?? 'Jonhdoe@gmail.com'}
+            </p>
+          </div>
         </div>
-      </div>
+      </span>
     </div>
   );
 };

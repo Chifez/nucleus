@@ -108,7 +108,7 @@ const Overview = () => {
         openModal={Boolean(modalContent?.toString())}
         extrastyle="fixed flex items-center justify-center left-0 top-0 w-screen h-screen bg-black/50 z-50"
       >
-        <div className="bg-white w-[40vw] h-[40vh] rounded-lg p-4">
+        <div className="bg-white w-[80vw] md:w-[40vw] h-[40vh] rounded-lg p-4">
           {modalContent === 'projects' && (
             <OverviewCard title="Projects" data={data[0].info} />
           )}

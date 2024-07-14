@@ -43,7 +43,7 @@ const SignUp = () => {
   // };
   return (
     <div className="w-full h-screen  flex items-center justify-center bg-[#EAEAEA]">
-      <div className="w-fit md:w-[32vw] min-h-[40vh] flex flex-col bg-white rounded-lg px-2 py-4">
+      <div className="w-fit md:w-[50vw] lg:w-[32vw] min-h-[40vh] flex flex-col bg-white rounded-lg px-2 py-4">
         <div className="flex items-center justify-center text-lg py-3 text-[#551fff]">
           <BiAtom className="w-6 h-6" />
           <h1 className="text-lg font-semibold">Nucleus</h1>

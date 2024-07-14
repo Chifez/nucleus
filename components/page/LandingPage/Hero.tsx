@@ -21,7 +21,7 @@ const Hero = () => {
 
   return (
     <section>
-      <div className="h-full w-full flex md:flex-row flex-col items-center justify-center gap-2 px-4 lg:px-20 py-20 lg:py-10">
+      <div className="h-full w-full flex lg:flex-row flex-col items-center justify-center gap-2 px-4 lg:px-20 py-20 lg:py-10">
         <div className="w-full h-full flex flex-col items-start justify-between gap-4">
           <div>
             <p className="text-[#92959E] font-bold text-sm">
@@ -60,7 +60,7 @@ const Hero = () => {
         </div>
 
         <div className=" w-full">
-          <div className="relative w-[90vw] h-[40vh] md:w-[45vw] md:h-[60vh] rounded-md bg-gradient-to-r from-blue-500 via-sky-800 to-indigo-700">
+          <div className="relative w-[90vw] h-[40vh] md:w-full lg:w-[45vw] lg:h-[60vh] rounded-md bg-gradient-to-r from-blue-500 via-sky-800 to-indigo-700">
             <Image
               src="/frame_generic_light.png"
               alt="frame"

@@ -1,5 +1,7 @@
-// import { Accordion } from '@szhsin/react-accordion';
-// import AccordionItem from '@/components/Shared/Accordion';
+'use client';
+
+import { Accordion } from '@szhsin/react-accordion';
+import AccordionItem from '@/components/Shared/Accordion';
 
 const FAQ = () => {
   const items = [
@@ -25,7 +27,7 @@ const FAQ = () => {
           What are your questions?
         </p>
       </div>
-      {/* <div className="mx-2 my-4 border-t">
+      <div className="mx-2 my-4 border-t">
         <Accordion transition transitionTimeout={200}>
           {items.map(({ header, content }, i) => (
             <AccordionItem header={header} key={i}>
@@ -33,7 +35,7 @@ const FAQ = () => {
             </AccordionItem>
           ))}
         </Accordion>
-      </div> */}
+      </div>
     </section>
   );
 };
